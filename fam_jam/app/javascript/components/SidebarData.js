@@ -25,21 +25,21 @@ export const SidebarData = [
             },
         ]
     },
-    {
-        title: 'Group 1',
-        path: '/groups/groups1',
-        icon: <IoIcons.IoMdPeople />
-    },
-    {
-        title: 'Group 2',
-        path: '/groups/groups2',
-        icon: <IoIcons.IoMdPeople />
-    },
-    {
-        title: 'Group 3',
-        path: '/groups/groups3',
-        icon: <IoIcons.IoMdPeople />
-    },
+    // {
+    //     title: 'Group 1',
+    //     path: '/groups/groups1',
+    //     icon: <IoIcons.IoMdPeople />
+    // },
+    // {
+    //     title: 'Group 2',
+    //     path: '/groups/groups2',
+    //     icon: <IoIcons.IoMdPeople />
+    // },
+    // {
+    //     title: 'Group 3',
+    //     path: '/groups/groups3',
+    //     icon: <IoIcons.IoMdPeople />
+    // },
     {
         title: 'Events',
         path: '#',

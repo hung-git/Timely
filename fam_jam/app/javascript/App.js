@@ -10,9 +10,9 @@ export default function App() {
             <Sidebar />
             <Switch>
                 <Route path="/" exact component={Home} />
-                <Route path="/groups/groups1" exact component={GroupsOne} />
+                {/* <Route path="/groups/groups1" exact component={GroupsOne} />
                 <Route path="/groups/groups2" exact component={GroupsTwo} />
-                <Route path="/groups/groups3" exact component={GroupsThree} />
+                <Route path="/groups/groups3" exact component={GroupsThree} /> */}
             </Switch>
         </Router>
     )
