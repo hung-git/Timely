@@ -19,16 +19,16 @@ export const Event = {
     //         body: JSON.stringify(params)
     //     }).then(res => res.json())
     // },
-    // update(params, id) {
-    //     return fetch(`${baseUrl}/events/${id}`, {
-    //         method: "PATCH",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         credentials: "include",
-    //         body: JSON.stringify(params)
-    //     }).then(res => res.json())
-    // },
+    update(params, id) {
+        return fetch(`${baseUrl}/events/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            credentials: "include",
+            body: JSON.stringify(params)
+        }).then(res => res.json())
+    },
     // destroy(id) {
     //     return fetch(`${baseUrl}/events/${id}`, {
     //         method: "DELETE",

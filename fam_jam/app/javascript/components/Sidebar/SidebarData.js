@@ -46,18 +46,18 @@ export const SidebarData = [
         icon: <AiIcons.AiFillHome />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpened: <RiIcons.RiArrowUpSFill />,
-        // subNav: [
-        //     {
-        //         title: 'Upcoming',
-        //         path: '#',
-        //         icon: <IoIcons.IoIosPaper />,
-        //     },
-        //     {
-        //         title: 'Completed',
-        //         path: '#',
-        //         icon: <IoIcons.IoIosPaper />,
-        //     },
-        // ]
+        subNav: [
+            {
+                title: 'Add Event',
+                path: '/events/new/new',
+                icon: <IoIcons.IoIosPaper />,
+            },
+            // {
+            //     title: 'Completed',
+            //     path: '#',
+            //     icon: <IoIcons.IoIosPaper />,
+            // },
+        ]
     },
     {
         title: 'Group',

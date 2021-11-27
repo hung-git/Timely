@@ -1,10 +1,11 @@
 import React, { useState, useEffect} from 'react'
-import Header from './Header'
+import Header from './Header/Header'
 import { Event } from '../requests'
-import moment from 'moment'
+import EventDetails from './EventDetails'
 
 const EventShow = (props) => {
     const [event, setEvent] = useState({})
+    
 
     useEffect(() => {
         Event.show(props.match.params.id)
@@ -13,20 +14,18 @@ const EventShow = (props) => {
                 setEvent(eventData)
             })
     }, [])
-    
+
     return (
         <>
-            {/* <Header title={"Event"}/> */}
-            <div className="">
-                <h3>{event.title}</h3>
-                <p>{event.description}</p>
-                <p>Location: {event.location}</p>
-                <p>Start: {moment(event.start_date).format('MMMM Do YYYY')}</p>
-                <p>End: {moment(event.end_date).format('MMMM Do YYYY')}</p>
-                
-            </div>
-            
-
+            <Header title={event.title}/>
+            <EventDetails
+                title = {event.title}
+                description = {event.description}
+                location = {event.location}
+                start = {event.start_date}
+                end = {event.end_date}
+                status = {event.is_complete}
+            />
         </>
     )
 }

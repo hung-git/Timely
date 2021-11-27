@@ -25,6 +25,14 @@ class Api::V1::EventsController < ApplicationController
     end
   end
 
+  def update
+    if event.update(event_params)
+        render json:{id: event.id}
+    else
+        render json:{errors: event.errors, status: 422}
+    end
+  end
+
   def destroy
     if @event.destroy
       render(json:{ status:200 })
