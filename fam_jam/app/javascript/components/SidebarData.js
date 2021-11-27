@@ -12,18 +12,18 @@ export const SidebarData = [
         icon: <AiIcons.AiFillHome />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpened: <RiIcons.RiArrowUpSFill />,
-        subNav: [
-            {
-                title: 'Users',
-                path: '#',
-                icon: <IoIcons.IoIosPaper />,
-            },
-            {
-                title: 'Contacts',
-                path: '#',
-                icon: <IoIcons.IoIosPaper />,
-            },
-        ]
+        // subNav: [
+        //     {
+        //         title: 'Users',
+        //         path: '#',
+        //         icon: <IoIcons.IoIosPaper />,
+        //     },
+        //     {
+        //         title: 'Contacts',
+        //         path: '#',
+        //         icon: <IoIcons.IoIosPaper />,
+        //     },
+        // ]
     },
     // {
     //     title: 'Group 1',
@@ -42,25 +42,25 @@ export const SidebarData = [
     // },
     {
         title: 'Events',
-        path: '#',
+        path: '/events',
         icon: <AiIcons.AiFillHome />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpened: <RiIcons.RiArrowUpSFill />,
-        subNav: [
-            {
-                title: 'Upcoming',
-                path: '#',
-                icon: <IoIcons.IoIosPaper />,
-            },
-            {
-                title: 'Completed',
-                path: '#',
-                icon: <IoIcons.IoIosPaper />,
-            },
-        ]
+        // subNav: [
+        //     {
+        //         title: 'Upcoming',
+        //         path: '#',
+        //         icon: <IoIcons.IoIosPaper />,
+        //     },
+        //     {
+        //         title: 'Completed',
+        //         path: '#',
+        //         icon: <IoIcons.IoIosPaper />,
+        //     },
+        // ]
     },
     {
-        title: 'Team',
+        title: 'Group',
         path: '#',
         icon: <AiIcons.AiFillHome />
     }
