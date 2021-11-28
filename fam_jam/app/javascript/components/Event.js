@@ -16,17 +16,7 @@ const EventShow = (props) => {
     }, [])
 
     const toggleStatus = (params) => {
-        console.log(params)
-        // setEvent(
-        //     {
-        //         title: event.title,
-        //         description: event.description,
-        //         location: event.location,
-        //         start_date: event.start_date,
-        //         end_date: event.end_date,
-        //         is_complete: 'testing'
-        //     }
-        // )
+        console.log("need to implement toggle status")
     }
 
     const toggleReminder = (id) => {
