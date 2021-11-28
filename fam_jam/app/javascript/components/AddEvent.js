@@ -1,12 +1,47 @@
 import React, { useState, useEffect } from 'react'
+import { Event } from '../requests'
 
-const AddEvent = () => {
+const AddEvent = (props) => {
     const [ title, setTitle] = useState('');
     const [ description, setDescription ] = useState('')
     const [ location, setLocation ] = useState('')
+
+    const onSubmit = (e) => {
+        e.preventDefault()
+        console.log({title, description, location})
+        
+        Event.create({title, description, location}) 
+            .then((event) => {
+                setTitle(title)
+                setDescription(description)
+                setLocation(location)
+                props.history.push(`/events/${event.id}`)
+            })
+        
+        setTitle('')
+        setDescription('')
+        setLocation('')
+    }
+
+    // createQuestion(params) {
+    //     console.log(`Params: ${params.title} ${params.body}`)
+    //     Question.create(params)
+    //       .then((question) => {
+    //         console.log(`question: ${question.errors}`)
+    //         if (question.errors) {
+    //           console.log(`QuestionErrors: ${question.errors}`)
+    //           this.setState({ errors: question.errors });
+    //         } else {
     
+    //           // const id = question.id;
+    //           // the history prop contains methods used to navigate
+    //           this.props.history.push(`/questions/${question.id}`);
+    //         }
+    //     })
+    // }
+
     return (
-        <form className="add-form" onSubmit={console.log('form')}>
+        <form className="add-form" onSubmit={onSubmit}>
             <div className="form-control">
                 <label>
                     Event Title

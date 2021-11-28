@@ -7,8 +7,8 @@ const EventDetails = (props) => {
             {/* <h3>{props.title}</h3> */}
             <p>{props.description}</p>
             <p>Location: {props.location}</p>
-            <p>Start: {moment(props.start_date).format('MMMM Do YYYY')}</p>
-            <p>End: {moment(props.end_date).format('MMMM Do YYYY')}</p>
+            <p>Start: {moment(props.start_date).format('MMM D, YYYY - HH:mm')}</p>
+            <p>End: {moment(props.end_date).format('MMM D, YYYY - HH:mm')}</p>
             <p>Status: {props.is_complete ? 'Complete' : 'Not Complete'}</p> 
         </div>
     )

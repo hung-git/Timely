@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import Sidebar from './components/Sidebar/Sidebar'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 // import { GroupsOne, GroupsTwo, GroupsThree } from './pages/Groups'
@@ -9,6 +9,7 @@ import Header from './components/Header/Header'
 import AddEvent from './components/AddEvent'
 
 export default function App() {
+
     return (
         <BrowserRouter>
             <Sidebar />

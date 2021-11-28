@@ -10,7 +10,7 @@ const EventShow = (props) => {
     useEffect(() => {
         Event.show(props.match.params.id)
             .then((eventData) => {
-                console.log(eventData)
+                // console.log(eventData)
                 setEvent(eventData)
             })
     }, [])
@@ -22,8 +22,8 @@ const EventShow = (props) => {
                 title = {event.title}
                 description = {event.description}
                 location = {event.location}
-                start = {event.start_date}
-                end = {event.end_date}
+                start_date = {event.start_date}
+                end_date = {event.end_date}
                 status = {event.is_complete}
             />
         </>
