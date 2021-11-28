@@ -15,9 +15,28 @@ const EventShow = (props) => {
             })
     }, [])
 
+    const toggleStatus = (params) => {
+        console.log(params)
+        // setEvent(
+        //     {
+        //         title: event.title,
+        //         description: event.description,
+        //         location: event.location,
+        //         start_date: event.start_date,
+        //         end_date: event.end_date,
+        //         is_complete: 'testing'
+        //     }
+        // )
+    }
+
+    const toggleReminder = (id) => {
+        console.log('toggle', id)
+        setTasks(tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task))
+      }
+
     return (
         <>
-            <Header title={event.title}/>
+            <Header title={event.title} text={"Done"} onToggle={toggleStatus} />
             <EventDetails
                 title = {event.title}
                 description = {event.description}

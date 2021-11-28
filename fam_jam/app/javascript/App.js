@@ -9,7 +9,6 @@ import Header from './components/Header/Header'
 import AddEvent from './components/AddEvent'
 
 export default function App() {
-
     return (
         <BrowserRouter>
             <Sidebar />

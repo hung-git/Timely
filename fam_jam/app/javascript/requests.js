@@ -29,13 +29,13 @@ export const Event = {
     //         body: JSON.stringify(params)
     //     }).then(res => res.json())
     // },
-    // destroy(id) {
-    //     return fetch(`${baseUrl}/events/${id}`, {
-    //         method: "DELETE",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         credentials: "include"
-    //     }).then(res => res.json())
-    // }
+    destroy(id) {
+        return fetch(`${baseUrl}/events/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            credentials: "include"
+        }).then(res => res.json())
+    }
 }

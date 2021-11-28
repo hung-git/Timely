@@ -31,10 +31,19 @@ const EventsIndex = () => {
         )
     }
 
+    const deleteEvent = (id) => {
+        console.log('shit')
+        setEvents(
+            events.filter(event => event.id !== id)
+        )
+        Event.destroy(id)
+        
+    }
+    
     return (
         <div className="">
             {/* <AddEvent createEvent={createEvent} /> */}
-            <Header title={("All Events")}/>
+            <Header title={"All Events"} text={'Hello'} />
             {/* <h1>This is where the Events Index will go</h1> */}
             {events.map((e) => {
                 return (
@@ -44,7 +53,8 @@ const EventsIndex = () => {
                     <Link to={`/events/${e.id}`}>{e.title}</Link> 
                     <FaIcons.FaTimes style={{color:'red', cursor:'pointer'}} 
                         onClick={() => {
-                            console.log('trying to delete')
+                            deleteEvent(e.id)
+                            // console.log("shit")
                         }}/>
                     
                 </h3>

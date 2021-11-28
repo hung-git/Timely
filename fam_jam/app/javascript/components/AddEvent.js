@@ -23,23 +23,6 @@ const AddEvent = (props) => {
         setLocation('')
     }
 
-    // createQuestion(params) {
-    //     console.log(`Params: ${params.title} ${params.body}`)
-    //     Question.create(params)
-    //       .then((question) => {
-    //         console.log(`question: ${question.errors}`)
-    //         if (question.errors) {
-    //           console.log(`QuestionErrors: ${question.errors}`)
-    //           this.setState({ errors: question.errors });
-    //         } else {
-    
-    //           // const id = question.id;
-    //           // the history prop contains methods used to navigate
-    //           this.props.history.push(`/questions/${question.id}`);
-    //         }
-    //     })
-    // }
-
     return (
         <form className="add-form" onSubmit={onSubmit}>
             <div className="form-control">
@@ -58,7 +41,7 @@ const AddEvent = (props) => {
                 <label>
                     Location
                 </label>
-                <input type="text" placeholder="Add Description" value={location} onChange={(e) => setLocation(e.currentTarget.value)} />
+                <input type="text" placeholder="Add Location" value={location} onChange={(e) => setLocation(e.currentTarget.value)} />
             </div>
             <input type="submit" value="Save Task" className="btn btn-block" />
         </form>
