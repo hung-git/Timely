@@ -5,7 +5,7 @@ import Header from './Header/Header'
 import * as FaIcons from 'react-icons/fa'
 import moment from 'moment';
 
-const EventsIndex = () => {
+const EventsIndex = ({currentUser}) => {
     const [events, setEvents] = useState([])
 
     useEffect(() => {
@@ -37,7 +37,7 @@ const EventsIndex = () => {
     
     return (
         <div className="">
-            <Header title={"All Events"} text={'Hello'} />
+            <Header title={"All Events"} text={currentUser} />
             {events.map((e) => {
                 return (
                     <div className={"event"} key={e.id}> 

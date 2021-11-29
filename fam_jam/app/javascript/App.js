@@ -12,7 +12,7 @@ import SignIn from './components/User/SignIn'
 import { User } from './requests'
 
 export default function App() {
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState('')
 
     useEffect(() => {
         getCurrentUser();
@@ -23,13 +23,15 @@ export default function App() {
             if (user?.id) {
               setUser(user)
             }
-            console.log(user)
+            // console.log(user)
         })
     }
 
+    console.log(user.first_name)
+
     return (
             <BrowserRouter>
-                <Sidebar />
+                <Sidebar user={user}/>
                 <Route path="/" exact component={Home} />
                     <Switch>
                     <>            

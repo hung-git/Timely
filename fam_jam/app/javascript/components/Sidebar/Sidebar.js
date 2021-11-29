@@ -45,7 +45,14 @@ const SidebarWrap = styled.div`
     width: 100%;
 `;
 
-const Sidebar = () => {
+const NavbarName = styled.div`
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    padding-left: 200px;
+`
+
+const Sidebar = ({user}) => {
     const [ sidebar, setSidebar ] = useState(false)
 
     const showSidebar = () => {
@@ -58,6 +65,9 @@ const Sidebar = () => {
             <Nav>
                 <NavIcon to='#'>
                     <FaIcons.FaBars onClick={showSidebar} />
+                    <NavbarName>
+                        Hello, {user.first_name}
+                    </NavbarName>
                 </NavIcon>
             </Nav>
             <SidebarNav sidebar={sidebar}>
