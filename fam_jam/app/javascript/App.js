@@ -7,16 +7,25 @@ import Event from './components/Event'
 import Home from './components/Home'
 import Header from './components/Header/Header'
 import AddEvent from './components/AddEvent'
+import SignUp from './components/User/SignUp'
+
+
 
 export default function App() {
+
     return (
         <BrowserRouter>
             <Sidebar />
             <Route path="/" exact component={Home} />
                 <Switch>
-                <>
+                <>            
                 <div className="container">
                     {/* <Header title={title}/> */}
+                    <Route
+                        exact path='/sign_up'
+                        render={(routeProps) => <SignUp {...routeProps} />}
+                    >
+                    </Route>
                     <Route exact path="/events" component={EventsIndex} />
                     <Route exact path="/events/new/new" component={AddEvent} />
                     <Route exact path="/events/:id" component={Event} />

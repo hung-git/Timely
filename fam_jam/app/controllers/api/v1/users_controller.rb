@@ -11,9 +11,15 @@ class Api::V1::UsersController < ApplicationController
             status: 422 #Unprocessable Entity
         )
     end
-end
+  end
 
   def current
-      render json: current_user
+    render json: current_user
   end
+
+  # def index
+  #   users = User.all
+    
+  #   render json: users
+  # end
 end

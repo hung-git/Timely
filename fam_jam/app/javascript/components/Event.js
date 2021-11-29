@@ -19,11 +19,6 @@ const EventShow = (props) => {
         console.log("need to implement toggle status")
     }
 
-    const toggleReminder = (id) => {
-        console.log('toggle', id)
-        setTasks(tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task))
-      }
-
     return (
         <>
             <Header title={event.title} text={"Done"} onToggle={toggleStatus} />

@@ -60,8 +60,22 @@ export const SidebarData = [
         ]
     },
     {
-        title: 'Group',
+        title: 'Users',
         path: '#',
-        icon: <AiIcons.AiFillHome />
+        icon: <AiIcons.AiFillHome />,
+        iconClosed: <RiIcons.RiArrowDownSFill />,
+        iconOpened: <RiIcons.RiArrowUpSFill />,
+        subNav: [
+            {
+                title: 'Sign In',
+                path: '',
+                icon: <IoIcons.IoMdPeople />,
+            },
+            {
+                title: 'Sign Up',
+                path: '/sign_up',
+                icon: <IoIcons.IoMdPeople />,
+            },
+        ]
     }
 ]
