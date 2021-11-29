@@ -1,5 +1,7 @@
 class Api::V1::EventsController < ApplicationController
   before_action :get_event, except: [:index, :create]
+
+  before_action :authenticate_user!, except: [:index, :show]
   
   def index
     events = Event.order(created_at: :DESC)
@@ -17,6 +19,7 @@ class Api::V1::EventsController < ApplicationController
 
   def create
     event = Event.new(event_params)
+    event.user = current_user
 
     if event.save
       render json: { id: event.id }

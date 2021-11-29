@@ -26,6 +26,8 @@ gem 'faker'
 
 gem 'cowsay'
 
+gem 'cancancan', '~> 1.15'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
