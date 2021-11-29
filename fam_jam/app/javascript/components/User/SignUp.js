@@ -19,11 +19,15 @@ const SignUp = (props) => {
         }
     
         User.create(user_params).then(user => {
-            console.log('user created')
-            props.history.push('/') //navigate to index
+            if (user?.id) {
+                console.log('user created')
+                props.history.push('/') //navigate to index
+            } else {
+                console.log('failed to create')
+                alert('Sorry, something went wrong. Please try again.')
+            }
         })
         
-
         setFirstName('')
         setLastName('')
         setEmail('')

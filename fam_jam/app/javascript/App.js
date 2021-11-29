@@ -8,6 +8,7 @@ import Home from './components/Home'
 import Header from './components/Header/Header'
 import AddEvent from './components/AddEvent'
 import SignUp from './components/User/SignUp'
+import SignIn from './components/User/SignIn'
 
 
 
@@ -24,6 +25,11 @@ export default function App() {
                     <Route
                         exact path='/sign_up'
                         render={(routeProps) => <SignUp {...routeProps} />}
+                    >
+                    </Route>
+                    <Route
+                        exact path='/sign_in'
+                        render={(routeProps) => <SignIn {...routeProps} />}
                     >
                     </Route>
                     <Route exact path="/events" component={EventsIndex} />

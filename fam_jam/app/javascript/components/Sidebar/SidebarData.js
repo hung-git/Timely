@@ -68,7 +68,7 @@ export const SidebarData = [
         subNav: [
             {
                 title: 'Sign In',
-                path: '',
+                path: '/sign_in',
                 icon: <IoIcons.IoMdPeople />,
             },
             {
