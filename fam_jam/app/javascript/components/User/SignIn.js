@@ -1,13 +1,23 @@
 import React, { useState } from 'react'
 import Header from '../Header/Header'
+import { Session } from '../../requests'
 
-const SignIn = () => {
+const SignIn = (props) => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
     const handleSignIn = (event) => {
         event.preventDefault()
-        console.log('Signing in')
+
+        Session.create({email, password}).then(data => {
+            if (data.id) {
+                props.onSignIn()
+                //Navigate to the index page from the browser
+                //We can "push" on history to manipulate the browser
+                //and direct our user to any page in our app
+                props.history.push('/events')
+            }
+        })
     }
     
     return (

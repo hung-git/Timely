@@ -60,7 +60,7 @@ export const SidebarData = [
         ]
     },
     {
-        title: 'Users',
+        title: 'User',
         path: '#',
         icon: <AiIcons.AiFillHome />,
         iconClosed: <RiIcons.RiArrowDownSFill />,
@@ -72,8 +72,8 @@ export const SidebarData = [
                 icon: <IoIcons.IoMdPeople />,
             },
             {
-                title: 'Sign Up',
-                path: '/sign_up',
+                title: 'Profile',
+                path: '#',
                 icon: <IoIcons.IoMdPeople />,
             },
             {

@@ -66,7 +66,7 @@ const Sidebar = ({user, onSignOut}) => {
                 <NavIcon to='#'>
                     <FaIcons.FaBars onClick={showSidebar} />
                     <NavbarName>
-                        { user ? `Hello, ${user.first_name}` : console.log('no user') }
+                        { user ? `Hello, ${user.first_name}` : null }
                     </NavbarName>
                 </NavIcon>
             </Nav>
@@ -76,7 +76,8 @@ const Sidebar = ({user, onSignOut}) => {
                         <FaIcons.FaTimes onClick={showSidebar} />
                     </NavIcon>
                     {SidebarData.map((item, index) => {
-                        return <SubMenu item={item} key={index} onSignOut={onSignOut}/>
+                        // passing onSignOut is passed in from App.js and being passed through to SubMenu
+                        return <SubMenu item={item} key={index} onSignOut={onSignOut} />
                     })}
                 </SidebarWrap>
             </SidebarNav>

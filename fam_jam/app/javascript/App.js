@@ -36,7 +36,7 @@ export default function App() {
 
     return (
             <BrowserRouter>
-                <Sidebar user={user} onSignOut={onSignOut}/>
+                <Sidebar user={user} onSignOut={onSignOut} />
                 
                     <Switch>
                     <>            
@@ -44,12 +44,12 @@ export default function App() {
                         <Route path="/" exact component={Home} />
                         <Route
                             exact path='/sign_up'
-                            render={(routeProps) => <SignUp {...routeProps} getCurrentUser={getCurrentUser} />}
+                            render={(routeProps) => <SignUp {...routeProps} onSignUp={getCurrentUser} />}
                         >
                         </Route>
                         <Route
                             exact path='/sign_in'
-                            render={(routeProps) => <SignIn {...routeProps} />}
+                            render={(routeProps) => <SignIn {...routeProps} onSignIn={getCurrentUser} />}
                         >
                         </Route>
                         <Route exact path="/events" component={EventsIndex} />

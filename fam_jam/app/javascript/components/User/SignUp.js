@@ -21,7 +21,7 @@ const SignUp = (props) => {
         User.create(user_params).then(user => {
             if (user?.id) {
                 console.log('user created')
-                props.getCurrentUser()
+                props.onSignUp()
                 props.history.push('/events') //navigate to index
             } else {
                 console.log('failed to create')
