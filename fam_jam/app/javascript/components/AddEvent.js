@@ -17,6 +17,7 @@ const AddEvent = (props) => {
                 setDescription(description)
                 setLocation(location)
                 props.history.push(`/events/${event.id}`)
+                // console.log(event)
             })
         
         setTitle('')

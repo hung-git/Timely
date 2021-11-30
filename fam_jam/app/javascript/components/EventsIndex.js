@@ -12,23 +12,23 @@ const EventsIndex = ({currentUser}) => {
         // get events from the api using Event.index that we defined in request.js
         Event.index()
             .then((data) => {
-                console.log(data)
+                // console.log(data)
                 // update state with data we fetched from the API
                 setEvents(data)
             })
     }, [])
 
-    const createEvent = (params) => {
-        setEvents(
-            [
-                ...events,
-                {
-                    id: (Math.max(...events.map(event => event.id)) + 1),
-                    ...params
-                }
-            ]
-        )
-    }
+    // const createEvent = (params) => {
+    //     setEvents(
+    //         [
+    //             ...events,
+    //             {
+    //                 id: (Math.max(...events.map(event => event.id)) + 1),
+    //                 ...params
+    //             }
+    //         ]
+    //     )
+    // }
 
     const deleteEvent = (id) => {
         setEvents(events.filter(event => event.id !== id))

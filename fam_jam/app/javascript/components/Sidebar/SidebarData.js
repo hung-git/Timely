@@ -78,7 +78,7 @@ export const SidebarData = [
             },
             {
                 title: 'Sign Out',
-                path: '#',
+                path: '/',
                 icon: <IoIcons.IoMdPeople />,
             },
         ]

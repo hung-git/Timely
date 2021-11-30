@@ -15,6 +15,7 @@ const EventShow = (props) => {
             })
     }, [])
 
+    // build this out later
     const toggleStatus = (params) => {
         console.log("need to implement toggle status")
     }
