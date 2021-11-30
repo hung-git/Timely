@@ -66,7 +66,8 @@ const SubMenu = (props) => {
                 return (
                     <DropdownLink to={e.path} key={index}>
                         {e.icon}
-                        <SidebarLabel>{e.title}</SidebarLabel>
+                        
+                        {e.title === "Sign Out" ? <SidebarLabel onClick={props.onSignOut}>{e.title}</SidebarLabel> : <SidebarLabel>{e.title}</SidebarLabel>}
                     </DropdownLink>
 
                 )

@@ -52,7 +52,7 @@ const NavbarName = styled.div`
     padding-left: 200px;
 `
 
-const Sidebar = ({user}) => {
+const Sidebar = ({user, onSignOut}) => {
     const [ sidebar, setSidebar ] = useState(false)
 
     const showSidebar = () => {
@@ -66,7 +66,7 @@ const Sidebar = ({user}) => {
                 <NavIcon to='#'>
                     <FaIcons.FaBars onClick={showSidebar} />
                     <NavbarName>
-                        Hello, {user.first_name}
+                        { user ? `Hello, ${user.first_name}` : console.log('no user') }
                     </NavbarName>
                 </NavIcon>
             </Nav>
@@ -76,7 +76,7 @@ const Sidebar = ({user}) => {
                         <FaIcons.FaTimes onClick={showSidebar} />
                     </NavIcon>
                     {SidebarData.map((item, index) => {
-                        return <SubMenu item={item} key={index} />
+                        return <SubMenu item={item} key={index} onSignOut={onSignOut}/>
                     })}
                 </SidebarWrap>
             </SidebarNav>

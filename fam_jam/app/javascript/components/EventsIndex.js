@@ -36,7 +36,7 @@ const EventsIndex = ({currentUser}) => {
     }
     
     return (
-        <div className="">
+        <div className="container">
             <Header title={"All Events"} text={currentUser} />
             {events.map((e) => {
                 return (

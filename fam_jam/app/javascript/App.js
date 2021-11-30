@@ -9,7 +9,7 @@ import Header from './components/Header/Header'
 import AddEvent from './components/AddEvent'
 import SignUp from './components/User/SignUp'
 import SignIn from './components/User/SignIn'
-import { User } from './requests'
+import { Session, User } from './requests'
 
 export default function App() {
     const [user, setUser] = useState('')
@@ -27,15 +27,21 @@ export default function App() {
         })
     }
 
-    console.log(user.first_name)
+    const onSignOut = () => { 
+        console.log('user signed out')
+        Session.destroy()
+        setUser('') 
+
+    }
 
     return (
             <BrowserRouter>
-                <Sidebar user={user}/>
-                <Route path="/" exact component={Home} />
+                <Sidebar user={user} onSignOut={onSignOut}/>
+                
                     <Switch>
                     <>            
-                    <div className="container">
+                    {/* <div className="container"> */}
+                        <Route path="/" exact component={Home} />
                         <Route
                             exact path='/sign_up'
                             render={(routeProps) => <SignUp {...routeProps} getCurrentUser={getCurrentUser} />}
@@ -49,7 +55,7 @@ export default function App() {
                         <Route exact path="/events" component={EventsIndex} />
                         <Route exact path="/events/new/new" component={AddEvent} />
                         <Route exact path="/events/:id" component={Event} />
-                    </div>
+                    {/* </div> */}
                     </>
                     </Switch>
                     {/* <Route path="/groups/groups1" exact component={GroupsOne} />

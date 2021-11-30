@@ -37,7 +37,7 @@ const SignUp = (props) => {
     }
 
     return(
-        <>
+        <div className="container">
             <Header title={"Sign Up"}/>
             <form className="add-form" onSubmit={handleSignUp}>
                 <div className="form-control">
@@ -62,7 +62,7 @@ const SignUp = (props) => {
                 </div>
                 <input type="submit" value="Sign Up" className="btn btn-block" />
             </form>
-        </>
+        </div>
     )
 }
 

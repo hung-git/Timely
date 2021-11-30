@@ -11,7 +11,7 @@ const SignIn = () => {
     }
     
     return (
-        <>
+        <div className="container">
             <Header title={"Sign In"}/>
             <form className="add-form" onSubmit={handleSignIn}>
                 <div className="form-control">
@@ -24,7 +24,7 @@ const SignIn = () => {
                 </div>
                 <input type="submit" value="Sign In" className="btn btn-block" />
             </form>
-        </>
+        </div>
     )
 }
 

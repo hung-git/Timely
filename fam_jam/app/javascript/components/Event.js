@@ -20,7 +20,7 @@ const EventShow = (props) => {
     }
 
     return (
-        <>
+        <div className="container">
             <Header title={event.title} text={"Done"} onToggle={toggleStatus} />
             <EventDetails
                 title = {event.title}
@@ -30,7 +30,7 @@ const EventShow = (props) => {
                 end_date = {event.end_date}
                 status = {event.is_complete}
             />
-        </>
+        </div>
     )
 }
 
