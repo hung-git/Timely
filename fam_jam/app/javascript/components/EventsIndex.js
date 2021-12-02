@@ -38,11 +38,11 @@ const EventsIndex = ({currentUser}) => {
     return (
         <div className="container">
             <Header title={"All Events"} text={currentUser} />
-            {events.map((e) => {
+            {events.map((e, index) => {
                 return (
-                    <div className={"event"} key={e.id}> 
+                    <div className={"event"} key={index}> 
                         <h3>
-                            <Link to={`/events/${e.id}`}>{e.title}</Link> 
+                            <Link to={`/events/${e.id}`}>{e.id} - {e.title}</Link> 
                             <FaIcons.FaTimes style={{color:'red', cursor:'pointer'}} 
                                 onClick={() => {
                                     deleteEvent(e.id)

@@ -4,7 +4,7 @@ class Api::V1::EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
-    events = current_user.events
+    events = current_user.events.order(created_at: :DESC)
     # byebug
 
     render json: events
@@ -20,21 +20,22 @@ class Api::V1::EventsController < ApplicationController
   def create
     event = Event.new(event_params)
     # event.user = current_user
-
+    
     if event.save
+      Enrollment.create(user_id: current_user.id, event_id: event.id)
       render json: { id: event.id }
     else
       render json: { error: event.errors.messages }, status: 422
     end
   end
 
-  def update
-    if event.update(event_params)
-        render json:{id: event.id}
-    else
-        render json:{errors: event.errors, status: 422}
-    end
-  end
+  # def update
+  #   if event.update(event_params)
+  #       render json:{id: event.id}
+  #   else
+  #       render json:{errors: event.errors, status: 422}
+  #   end
+  # end
 
   def destroy
     if @event.destroy
@@ -44,6 +45,8 @@ class Api::V1::EventsController < ApplicationController
     end
   end
 
+  private
+  
   def get_event
      @event = Event.find(params[:id])    
   end
