@@ -2,7 +2,7 @@ import React from 'react'
 
 const Button = (props) => {
     return (
-        <button onClick={props.onToggle} className='btn' style={{backgroundColor: props.color}}>{props.text}</button>
+        <button onClick={props.addToGcal} className='btn' style={{backgroundColor: props.color}}>{props.text}</button>
     )
 }
 

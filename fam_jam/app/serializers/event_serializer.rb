@@ -8,12 +8,8 @@ class EventSerializer < ActiveModel::Serializer
     :end_date, 
     :reminder, 
     :is_complete,
+    :guests
   )
-
-   has_many :users, key: :guests
-   class UserSerializer < ActiveModel::Serializer
-    attributes :email
-   end
 end
 
 

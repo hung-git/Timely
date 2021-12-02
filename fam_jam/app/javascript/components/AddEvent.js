@@ -6,16 +6,27 @@ const AddEvent = (props) => {
     const [ title, setTitle] = useState('');
     const [ description, setDescription ] = useState('')
     const [ location, setLocation ] = useState('')
+    const [ startTime, setStartTime ] = useState('')
+    const [ endTime, setEndTime ] = useState('')
+    const [ guests, setGuests ] = useState([])
+    
+
 
     const onSubmit = (e) => {
         e.preventDefault()
-        console.log({title, description, location})
+        // console.log({title, description, location, startTime, endTime, guests})
+        console.log(guests)
+
+
         
-        Event.create({title, description, location}) 
+        Event.create({title, description, location, startTime, endTime, guests}) 
             .then((event) => {
                 setTitle(title)
                 setDescription(description)
-                setLocation(location)
+                setLocation(location),
+                setStartTime('2015-05-28T09:00:00-07:00'),
+                setEndTime('2015-05-28T17:00:00-07:00'),
+                setGuests(guests)
                 props.history.push(`/events/${event.id}`)
                 // console.log(event)
             })
@@ -23,6 +34,7 @@ const AddEvent = (props) => {
         setTitle('')
         setDescription('')
         setLocation('')
+        
     }
 
     return (
@@ -46,6 +58,24 @@ const AddEvent = (props) => {
                         Location
                     </label>
                     <input type="text" placeholder="Add Location" value={location} onChange={(e) => setLocation(e.currentTarget.value)} />
+                </div>
+                <div className="form-control">
+                    <label>
+                        Start Time
+                    </label>
+                    <input type="text" placeholder="Set Event Start" value={startTime} onChange={(e) => setStartTime(e.currentTarget.value)} />
+                </div>
+                <div className="form-control">
+                    <label>
+                        End Time
+                    </label>
+                    <input type="text" placeholder="Set Event End" value={endTime} onChange={(e) => setEndTime(e.currentTarget.value)} />
+                </div>
+                <div className="form-control">
+                    <label>
+                        Guests
+                    </label>
+                    <input type="text" placeholder="Guest Emails" value={guests} onChange={(e) => setGuests(e.currentTarget.value)} />
                 </div>
                 <input type="submit" value="Save Task" className="btn btn-block" />
             </form>

@@ -79,8 +79,8 @@ user_sample = users.shuffle.slice(0, 10)
 10.times do 
     e = Event.create(
         title: titles.sample,
-        start_date: DateTime.now - (rand * 21),
-        end_date: DateTime.now + (rand *21),
+        start_date: '2015-05-28T09:00:00-07:00',
+        end_date: '2015-05-28T17:00:00-07:00',
         location: "Some Location",
         description: Faker::ChuckNorris.fact,
         city: cities.sample,
@@ -88,6 +88,7 @@ user_sample = users.shuffle.slice(0, 10)
         country: "Canada",
         latitude: 49.2,
         longitude: 100.3,
+        guests: guests.sample
     )
     if e.valid?
         Enrollment.create(

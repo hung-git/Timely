@@ -18,18 +18,6 @@ const EventsIndex = ({currentUser}) => {
             })
     }, [])
 
-    // const createEvent = (params) => {
-    //     setEvents(
-    //         [
-    //             ...events,
-    //             {
-    //                 id: (Math.max(...events.map(event => event.id)) + 1),
-    //                 ...params
-    //             }
-    //         ]
-    //     )
-    // }
-
     const deleteEvent = (id) => {
         setEvents(events.filter(event => event.id !== id))
         Event.destroy(id) 

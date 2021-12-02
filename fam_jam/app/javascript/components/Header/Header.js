@@ -1,12 +1,11 @@
 import React from 'react'
 import Button from './Button'
 
-const Header = ({ title }) => {
+const Header = ({ title, text, addToGcal }) => {
     return (
         <header className="header" >
             <h1>{title}</h1>
-            {/* <Button color={showForm ? 'red' : 'green'} text={showForm ? 'Close' : 'Add'} onToggle={onToggle} /> */}
-            {/* <Button color='green' text={text} onToggle={onToggle} /> */}
+            {text==="Add To Calendar" ? <Button color='green' text={text} addToGcal={addToGcal}/> : null}
         </header>
     )
 }
