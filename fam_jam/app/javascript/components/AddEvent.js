@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Event } from '../requests'
 import Header from './Header/Header';
+import PlacesAutocomplete from 'react-places-autocomplete';
+
 
 const AddEvent = (props) => {
     const [ title, setTitle] = useState('');
@@ -9,15 +11,12 @@ const AddEvent = (props) => {
     const [ startTime, setStartTime ] = useState('')
     const [ endTime, setEndTime ] = useState('')
     const [ guests, setGuests ] = useState([])
-    
 
 
     const onSubmit = (e) => {
         e.preventDefault()
         // console.log({title, description, location, startTime, endTime, guests})
         console.log(guests)
-
-
         
         Event.create({title, description, location, startTime, endTime, guests}) 
             .then((event) => {
@@ -31,10 +30,13 @@ const AddEvent = (props) => {
                 // console.log(event)
             })
         
-        setTitle('')
-        setDescription('')
-        setLocation('')
-        
+        // setTitle('')
+        // setDescription('')
+        // setLocation('')
+    }
+
+    const handleChange = (value) => {
+        setLocation(value)
     }
 
     return (
@@ -43,9 +45,9 @@ const AddEvent = (props) => {
             <form className="add-form" onSubmit={onSubmit}>
                 <div className="form-control">
                     <label>
-                        Event Title
+                        Event Name
                     </label>
-                    <input type="text" placeholder="Add Task" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <input type="text" placeholder="Add Event Name" value={title} onChange={(e) => setTitle(e.target.value)} />
                 </div>
                 <div className="form-control">
                     <label>
@@ -57,7 +59,28 @@ const AddEvent = (props) => {
                     <label>
                         Location
                     </label>
-                    <input type="text" placeholder="Add Location" value={location} onChange={(e) => setLocation(e.currentTarget.value)} />
+                    <PlacesAutocomplete value={location} onChange={handleChange} onSelect={handleChange}>
+                        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+                            <div>
+                                <input {...getInputProps({ placeholder: "Enter Address ...", })} />
+                                <div>
+                                    {loading && <div>Loading ...</div>}
+                                    {suggestions.map((suggestion, index) => {
+                                        const style = suggestion.active ?
+                                        { backgroundColor: 'lightgray', cursor: 'pointer' } :
+                                        { backgroundColor: "white", cursor: 'pointer' }
+
+                                        return (
+                                            <div {...getSuggestionItemProps(suggestion, {style})}>
+                                                {suggestion.description}
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            </div>
+                        )}
+                    </PlacesAutocomplete>
+                    {/* <input type="text" placeholder="Add Location" value={location} onChange={(e) => setLocation(e.currentTarget.value)} /> */}
                 </div>
                 <div className="form-control">
                     <label>
