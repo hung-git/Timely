@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_28_191058) do
+ActiveRecord::Schema.define(version: 2021_12_02_031302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "enrollments", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "event_id", null: false
+    t.boolean "is_owner"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["event_id"], name: "index_enrollments_on_event_id"
+    t.index ["user_id"], name: "index_enrollments_on_user_id"
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "title"
@@ -26,7 +36,6 @@ ActiveRecord::Schema.define(version: 2021_11_28_191058) do
     t.string "country"
     t.float "latitude"
     t.float "longitude"
-    t.string "guest_list"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "reminder", default: false
@@ -44,4 +53,6 @@ ActiveRecord::Schema.define(version: 2021_11_28_191058) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "enrollments", "events"
+  add_foreign_key "enrollments", "users"
 end

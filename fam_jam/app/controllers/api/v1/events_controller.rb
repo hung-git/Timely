@@ -4,17 +4,17 @@ class Api::V1::EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   
   def index
-    events = Event.order(created_at: :DESC)
+    events = current_user.events
+    # byebug
 
     render json: events
+    
   end
 
   def show
-    if @event
-      render json: @event
-    else
-      render json: { error: "Event Not Found!" }
-    end
+    event = Event.find params[:id]
+    # byebug
+    render json: event
   end
 
   def create

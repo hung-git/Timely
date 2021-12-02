@@ -10,6 +10,7 @@ const EventDetails = (props) => {
             <p>Start: {moment(props.start_date).format('MMM D, YYYY - HH:mm')}</p>
             <p>End: {moment(props.end_date).format('MMM D, YYYY - HH:mm')}</p>
             <p>Status: {props.is_complete ? 'Complete' : 'Not Complete'}</p> 
+            <p>Guests: {props.guests}</p>
         </div>
     )
 }

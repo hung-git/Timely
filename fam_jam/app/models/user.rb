@@ -1,6 +1,9 @@
 class User < ApplicationRecord
     has_secure_password
-    
+
+    has_many :enrollments, dependent: :destroy
+    has_many :events, through: :enrollments, source: :event
+
     validates :first_name, :last_name, presence: true
 
     VALID_EMAIL_REGEX = /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i

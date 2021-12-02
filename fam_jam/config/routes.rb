@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :events
       resource :session, only: [:create, :destroy]
+      resources :enrollments, only: [:index, :create, :update, :destroy]
       
       resources :users, only: [:create] do
         get :current, on: :collection

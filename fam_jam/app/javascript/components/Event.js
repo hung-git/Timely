@@ -30,6 +30,7 @@ const EventShow = (props) => {
                 start_date = {event.start_date}
                 end_date = {event.end_date}
                 status = {event.is_complete}
+                guests = {"guests go here"}
             />
         </div>
     )
