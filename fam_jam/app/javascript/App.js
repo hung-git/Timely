@@ -34,8 +34,6 @@ export default function App() {
 
     }
 
-
-
     const addToGcal = () => {
         gapi.load('client:auth2', () => {
             console.log('loaded client')

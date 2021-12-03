@@ -1,33 +1,53 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Event } from '../requests'
 import Header from './Header/Header';
 import PlacesAutocomplete from 'react-places-autocomplete';
+import DateFnsUtils from '@date-io/date-fns';
 
-
+import {
+    DatePicker,
+    TimePicker,
+    DateTimePicker,
+    MuiPickersUtilsProvider,
+  } from '@material-ui/pickers';
+  
 const AddEvent = (props) => {
     const [ title, setTitle] = useState('');
     const [ description, setDescription ] = useState('')
     const [ location, setLocation ] = useState('')
-    const [ startTime, setStartTime ] = useState('')
-    const [ endTime, setEndTime ] = useState('')
+    const [ startTime, setStartTime ] = useState(
+        new Date()
+    )
+    const [ endTime, setEndTime ] = useState(
+        new Date()
+    )
     const [ guests, setGuests ] = useState([])
 
 
     const onSubmit = (e) => {
         e.preventDefault()
-        // console.log({title, description, location, startTime, endTime, guests})
-        console.log(guests)
-        
-        Event.create({title, description, location, startTime, endTime, guests}) 
+        console.log({title, description, location, startTime, endTime, guests})
+        // console.log(startTime)
+        // console.log(endTime)
+        const params = {
+            title: title,
+            description: description,
+            location: location,
+            start_date: startTime,
+            end_date: endTime,
+            guests: guests
+        }
+
+        Event.create(params) 
             .then((event) => {
                 setTitle(title)
                 setDescription(description)
                 setLocation(location),
-                setStartTime('2015-05-28T09:00:00-07:00'),
-                setEndTime('2015-05-28T17:00:00-07:00'),
+                setStartTime(startTime),
+                setEndTime(endTime),
                 setGuests(guests)
                 props.history.push(`/events/${event.id}`)
-                // console.log(event)
+                // console.log(event.title)
             })
         
         // setTitle('')
@@ -37,6 +57,14 @@ const AddEvent = (props) => {
 
     const handleChange = (value) => {
         setLocation(value)
+    }
+
+    const handleStartChange = (value) => {
+        setStartTime(value)
+    }
+
+    const handleEndChange = (value) => {
+        setEndTime(value)
     }
 
     return (
@@ -86,13 +114,23 @@ const AddEvent = (props) => {
                     <label>
                         Start Time
                     </label>
-                    <input type="text" placeholder="Set Event Start" value={startTime} onChange={(e) => setStartTime(e.currentTarget.value)} />
+                    {/* <input type="text" placeholder="Set Event Start" value={startTime} onChange={(e) => setStartTime(e.currentTarget.value)} /> */}
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    {/* <DatePicker value={startTime} onChange={handleStartChange} /> */}
+                    {/* <TimePicker value={selectedDate} onChange={handleDateChange} /> */}
+                    <DateTimePicker value={startTime} onChange={handleStartChange} />
+                    </MuiPickersUtilsProvider>
                 </div>
                 <div className="form-control">
                     <label>
                         End Time
                     </label>
-                    <input type="text" placeholder="Set Event End" value={endTime} onChange={(e) => setEndTime(e.currentTarget.value)} />
+                    {/* <input type="text" placeholder="Set Event End" value={endTime} onChange={(e) => setEndTime(e.currentTarget.value)} /> */}
+                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    {/* <DatePicker value={startTime} onChange={handleStartChange} /> */}
+                    {/* <TimePicker value={selectedDate} onChange={handleDateChange} /> */}
+                    <DateTimePicker value={endTime} onChange={handleEndChange} />
+                    </MuiPickersUtilsProvider>
                 </div>
                 <div className="form-control">
                     <label>

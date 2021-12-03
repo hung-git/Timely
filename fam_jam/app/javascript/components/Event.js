@@ -33,11 +33,11 @@ const EventShow = (props) => {
                     'location': event.location,
                     'description': event.description,
                     'start': {
-                      'dateTime': '2015-05-28T09:00:00-07:00',
+                      'dateTime': event.start_date,
                       'timeZone': 'America/Los_Angeles'
                     },
                     'end': {
-                      'dateTime': '2015-05-28T17:00:00-07:00',
+                      'dateTime': event.end_date,
                       'timeZone': 'America/Los_Angeles'
                     },
                     'recurrence': [
@@ -71,7 +71,7 @@ const EventShow = (props) => {
     useEffect(() => {
         Event.show(props.match.params.id)
             .then((eventData) => {
-                console.log(eventData.guests)
+                // console.log(eventData.guests)
                 
                 setEvent(eventData)
                 

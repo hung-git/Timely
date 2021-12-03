@@ -25,13 +25,18 @@ const EventsIndex = ({currentUser}) => {
     
     return (
         <div className="container">
-            <Header title={"All Events"} text={currentUser} />
+            {
+            (events.length < 1) ? 
+                <Header title={"There Are Currently No Events to Display"} /> 
+                : 
+                <Header title={"All Events"} text={'Add Event'} color={'green'} />
+            }
             {events.map((e, index) => {
                 return (
                     <div className={"event"} key={index}> 
                         <h3>
                             <Link to={`/events/${e.id}`}>{e.id} - {e.title}</Link> 
-                            <FaIcons.FaTimes style={{color:'red', cursor:'pointer'}} 
+                            <FaIcons.FaTimes style={{color:'', cursor:'pointer'}} 
                                 onClick={() => {
                                     deleteEvent(e.id)
                                 }}/>
