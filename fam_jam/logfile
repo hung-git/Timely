@@ -5,3 +5,7 @@
 2021-12-01 23:26:49.514 PST [7236] LOG:  database system was shut down at 2021-12-01 23:26:26 PST
 2021-12-01 23:26:49.515 PST [7235] LOG:  database system is ready to accept connections
 2021-12-01 23:27:24.617 PST [7266] FATAL:  database "fam_jam_development" does not exist
+2021-12-07 11:03:05.700 PST [7235] LOG:  received smart shutdown request
+2021-12-07 11:03:05.706 PST [7235] LOG:  background worker "logical replication launcher" (PID 7242) exited with exit code 1
+2021-12-07 11:03:05.707 PST [7237] LOG:  shutting down
+2021-12-07 11:03:05.734 PST [7235] LOG:  database system is shut down

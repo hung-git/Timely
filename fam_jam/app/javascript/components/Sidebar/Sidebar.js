@@ -58,10 +58,14 @@ const Sidebar = ({user, onSignOut}) => {
     const showSidebar = () => {
         setSidebar(!sidebar)
     }
+    const closeSidebar = () => {
+        sidebar ? setSidebar(false) : null
+    }
 
     return (
         <>
         <IconContext.Provider value={{ color: '#fff'}}>
+            <div onMouseLeave={closeSidebar}>
             <Nav>
                 <NavIcon to='#'>
                     <FaIcons.FaBars onClick={showSidebar} />
@@ -81,6 +85,7 @@ const Sidebar = ({user, onSignOut}) => {
                     })}
                 </SidebarWrap>
             </SidebarNav>
+            </div>
         </IconContext.Provider>
         </>
     )

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Header from './Header/Header'
 import * as FaIcons from 'react-icons/fa'
 import moment from 'moment';
+import Modal from './Modal/Modal'
 
 const EventsIndex = ({currentUser}) => {
     const [events, setEvents] = useState([])
@@ -22,6 +23,21 @@ const EventsIndex = ({currentUser}) => {
         setEvents(events.filter(event => event.id !== id))
         Event.destroy(id) 
     }
+
+    const toggleReminder = (id) => {
+        console.log('toggling', id)
+        setEvents(events.map((event) => event.id === id ? {...event, reminder: !event.reminder} : event))
+        const currentEvent = events.find((item) => item.id === id)
+        
+
+    
+        // const params = ()
+        Event.update({...currentEvent, reminder: !currentEvent.reminder}, id)
+      }
+    
+    //   useEffect(() => {
+    //     Event.update
+    //   }, [events])
     
     return (
         <div className="container">
@@ -33,9 +49,9 @@ const EventsIndex = ({currentUser}) => {
             }
             {events.map((e, index) => {
                 return (
-                    <div className={"event"} key={index}> 
+                    <div className={`event ${e.reminder ? 'reminder' : ''}`} onDoubleClick={() => toggleReminder(e.id)} key={index}> 
                         <h3>
-                            <Link to={`/events/${e.id}`}>{e.id} - {e.title}</Link> 
+                            <Link to={`/events/${e.id}`}>{e.title}</Link> 
                             <FaIcons.FaTimes style={{color:'', cursor:'pointer'}} 
                                 onClick={() => {
                                     deleteEvent(e.id)

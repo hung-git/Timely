@@ -10,6 +10,7 @@ export const Event = {
             .then(res => res.json());
     },
     create(params) {
+        console.log(params)
         return fetch(`${baseUrl}/events`, {
             method: "POST",
             headers: {
@@ -19,16 +20,16 @@ export const Event = {
             body: JSON.stringify(params)
         }).then(res => res.json())
     },
-    // update(params, id) {
-    //     return fetch(`${baseUrl}/events/${id}`, {
-    //         method: "PATCH",
-    //         headers: {
-    //             "Content-Type": "application/json"
-    //         },
-    //         credentials: "include",
-    //         body: JSON.stringify(params)
-    //     }).then(res => res.json())
-    // },
+    update(params, id) {
+        return fetch(`${baseUrl}/events/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            credentials: "include",
+            body: JSON.stringify(params)
+        }).then(res => res.json())
+    },
     destroy(id) {
         return fetch(`${baseUrl}/events/${id}`, {
             method: "DELETE",

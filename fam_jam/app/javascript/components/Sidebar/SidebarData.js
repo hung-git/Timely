@@ -67,13 +67,14 @@ export const SidebarData = [
         iconOpened: <RiIcons.RiArrowUpSFill />,
         subNav: [
             {
-                title: 'Sign In',
-                path: '/sign_in',
+                title: 'Profile',
+                path: '#',
                 icon: <IoIcons.IoMdPeople />,
             },
             {
-                title: 'Profile',
-                path: '#',
+                
+                title: 'Sign In',
+                path: '/sign_in',
                 icon: <IoIcons.IoMdPeople />,
             },
             {

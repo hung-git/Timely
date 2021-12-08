@@ -8,7 +8,7 @@ const EventShow = (props) => {
     
     const gapi = window.gapi
     const CLIENT_ID = "835005991691-tptpiic7khfttqmgnf3md2kjr5e5lm3e.apps.googleusercontent.com"
-    const API_KEY = "AIzaSyAFwHaFw5sYv39zMl3KzH66v-RSXICHyj4"
+    const API_KEY = "AIzaSyDdwT6xesx15AzgJ9za9dJm_RyHbIJoH2E"
     const DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
       // Authorization scopes required by the API; multiple scopes can be
       // included, separated by spaces.
@@ -71,17 +71,9 @@ const EventShow = (props) => {
     useEffect(() => {
         Event.show(props.match.params.id)
             .then((eventData) => {
-                // console.log(eventData.guests)
-                
                 setEvent(eventData)
-                
             })
     }, [])
-
-    // build this out later
-    // const toggleStatus = (params) => {
-    //     console.log("need to implement toggle status")
-    // }
 
     return (
         <div className="container">
@@ -93,7 +85,7 @@ const EventShow = (props) => {
                 location = {event.location}
                 start_date = {event.start_date}
                 end_date = {event.end_date}
-                status = {event.is_complete}
+                reminder = {event.reminder}
                 guests = {event.guests}
             />
         </div>

@@ -26,7 +26,7 @@ const SignIn = (props) => {
             <form className="add-form" onSubmit={handleSignIn}>
                 <div className="form-control">
                     <label htmlFor="first_name">Email</label>
-                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} />   
+                    <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />   
                 </div>
                 <div className="form-control">
                     <label htmlFor="password">Password</label>

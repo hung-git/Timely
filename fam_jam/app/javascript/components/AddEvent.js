@@ -5,8 +5,6 @@ import PlacesAutocomplete from 'react-places-autocomplete';
 import DateFnsUtils from '@date-io/date-fns';
 
 import {
-    DatePicker,
-    TimePicker,
     DateTimePicker,
     MuiPickersUtilsProvider,
   } from '@material-ui/pickers';
@@ -15,47 +13,38 @@ const AddEvent = (props) => {
     const [ title, setTitle] = useState('');
     const [ description, setDescription ] = useState('')
     const [ location, setLocation ] = useState('')
+    const [ reminder, setReminder ] = useState(false)
     const [ startTime, setStartTime ] = useState(
-        new Date()
-    )
+            new Date()
+        )
     const [ endTime, setEndTime ] = useState(
-        new Date()
-    )
-    const [ guests, setGuests ] = useState([])
+            new Date()
+        )
+    const [ guestList, setGuestList ] = useState([])
 
+    const [ guest, setGuest ] = useState('')
 
     const onSubmit = (e) => {
         e.preventDefault()
-        console.log({title, description, location, startTime, endTime, guests})
-        // console.log(startTime)
-        // console.log(endTime)
+        // console.log('logging from AddEvent.js: ', {title, description, location, startTime, endTime, guestList, reminder})
+        console.log(guestList)
         const params = {
             title: title,
             description: description,
             location: location,
             start_date: startTime,
             end_date: endTime,
-            guests: guests
+            reminder: reminder,
+            guests: guestList.join(', ')
         }
 
         Event.create(params) 
             .then((event) => {
-                setTitle(title)
-                setDescription(description)
-                setLocation(location),
-                setStartTime(startTime),
-                setEndTime(endTime),
-                setGuests(guests)
                 props.history.push(`/events/${event.id}`)
-                // console.log(event.title)
             })
-        
-        // setTitle('')
-        // setDescription('')
-        // setLocation('')
     }
 
-    const handleChange = (value) => {
+    const handleLocation = (value) => {
         setLocation(value)
     }
 
@@ -65,6 +54,15 @@ const AddEvent = (props) => {
 
     const handleEndChange = (value) => {
         setEndTime(value)
+    }
+    
+    const handleAddGuest = (e) => {
+        e.preventDefault()
+        
+        setGuestList([...guestList, guest])
+        
+        // console.log(guestList)
+        setGuest('')
     }
 
     return (
@@ -87,7 +85,7 @@ const AddEvent = (props) => {
                     <label>
                         Location
                     </label>
-                    <PlacesAutocomplete value={location} onChange={handleChange} onSelect={handleChange}>
+                    <PlacesAutocomplete value={location} onChange={handleLocation} onSelect={handleLocation}>
                         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                             <div>
                                 <input {...getInputProps({ placeholder: "Enter Address ...", })} />
@@ -99,8 +97,10 @@ const AddEvent = (props) => {
                                         { backgroundColor: "white", cursor: 'pointer' }
 
                                         return (
-                                            <div {...getSuggestionItemProps(suggestion, {style})}>
+                                            <div key={index}>
+                                                <div {...getSuggestionItemProps(suggestion, {style})}>
                                                 {suggestion.description}
+                                                </div>
                                             </div>
                                         )
                                     })}
@@ -108,38 +108,52 @@ const AddEvent = (props) => {
                             </div>
                         )}
                     </PlacesAutocomplete>
-                    {/* <input type="text" placeholder="Add Location" value={location} onChange={(e) => setLocation(e.currentTarget.value)} /> */}
                 </div>
                 <div className="form-control">
                     <label>
                         Start Time
                     </label>
-                    {/* <input type="text" placeholder="Set Event Start" value={startTime} onChange={(e) => setStartTime(e.currentTarget.value)} /> */}
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    {/* <DatePicker value={startTime} onChange={handleStartChange} /> */}
-                    {/* <TimePicker value={selectedDate} onChange={handleDateChange} /> */}
-                    <DateTimePicker value={startTime} onChange={handleStartChange} />
+                        <DateTimePicker value={startTime} onChange={handleStartChange} 
+                            minDate={new Date()}
+                        />
                     </MuiPickersUtilsProvider>
                 </div>
                 <div className="form-control">
                     <label>
                         End Time
                     </label>
-                    {/* <input type="text" placeholder="Set Event End" value={endTime} onChange={(e) => setEndTime(e.currentTarget.value)} /> */}
                     <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                    {/* <DatePicker value={startTime} onChange={handleStartChange} /> */}
-                    {/* <TimePicker value={selectedDate} onChange={handleDateChange} /> */}
-                    <DateTimePicker value={endTime} onChange={handleEndChange} />
+                        <DateTimePicker value={endTime} onChange={handleEndChange} />
                     </MuiPickersUtilsProvider>
+                </div>        
+                <div>
+                    <input type="checkbox" className="btn-check" id="btn-check-outlined" autoComplete="off" onChange={(e) => {setReminder(!reminder)}} />
+                    <label className="btn btn-outline-primary" htmlFor="btn-check-outlined">Set Reminder</label>
+                    <br/>
                 </div>
-                <div className="form-control">
-                    <label>
-                        Guests
-                    </label>
-                    <input type="text" placeholder="Guest Emails" value={guests} onChange={(e) => setGuests(e.currentTarget.value)} />
+                <div className="form-control">      
+                    <input type="email" id="email" name="guest" placeholder="Add Guest" value={guest} onChange={e => setGuest(e.target.value)}/>
                 </div>
-                <input type="submit" value="Save Task" className="btn btn-block" />
+                <button className="btn" onClick={handleAddGuest}>
+                    + Guest
+                </button>  
+                <br/>
+                <input type="submit" value="Save Event" className="btn btn-block" />
             </form>
+
+
+
+
+
+            <pre>
+                {JSON.stringify(guestList, null, 2)}
+            </pre>
+
+
+
+
+
         </div>
     )
 }

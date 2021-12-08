@@ -2,6 +2,8 @@ class Api::V1::EventsController < ApplicationController
   before_action :get_event, except: [:index, :create]
 
   before_action :authenticate_user!, except: [:index, :show]
+
+  # before_action :authorize_user!, only: [:update, :destroy]
   
   def index
     events = current_user.events.order(created_at: :DESC)
@@ -18,6 +20,7 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def create
+    puts event_params
     event = Event.new(event_params)
     # event.user = current_user
     
@@ -29,13 +32,13 @@ class Api::V1::EventsController < ApplicationController
     end
   end
 
-  # def update
-  #   if event.update(event_params)
-  #       render json:{id: event.id}
-  #   else
-  #       render json:{errors: event.errors, status: 422}
-  #   end
-  # end
+  def update
+    if @event.update(event_params)
+        render json:{id: @event.id}
+    else
+        render json:{errors: @event.errors, status: 422}
+    end
+  end
 
   def destroy
     if @event.destroy
@@ -52,6 +55,6 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :description, :start_date, :end_date, :location, :guests)
+    params.require(:event).permit(:title, :description, :start_date, :end_date, :reminder, :location, :guests)
   end
 end
