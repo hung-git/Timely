@@ -10,7 +10,7 @@ import AddEvent from './components/AddEvent'
 import SignUp from './components/User/SignUp'
 import SignIn from './components/User/SignIn'
 import { Session, User } from './requests'
-import Modal from './components/Modal/Modal'
+import SignOut from './components/User/SignOut'
 
 export default function App() {
     const [user, setUser] = useState('')
@@ -24,7 +24,6 @@ export default function App() {
             if (user?.id) {
               setUser(user)
             }
-            // console.log(user)
         })
     }
 
@@ -32,66 +31,11 @@ export default function App() {
         console.log('user signed out')
         Session.destroy()
         setUser('') 
-
     }
-
-    // const addToGcal = () => {
-    //     gapi.load('client:auth2', () => {
-    //         console.log('loaded client')
-
-    //         gapi.client.init({
-    //             apiKey: API_KEY,
-    //             clientId: CLIENT_ID,
-    //             discoveryDocs: DISCOVERY_DOCS,
-    //             scope: SCOPES
-    //         })
-    //         gapi.client.load('calendar', 'v3', () => console.log('woot!'))
-
-    //         gapi.auth2.getAuthInstance().signIn()
-    //         .then(() => {
-    //             const gCalEvent = {
-    //                 'summary': event.title,
-    //                 'location': event.location,
-    //                 'description': event.description,
-    //                 'start': {
-    //                   'dateTime': '2015-05-28T09:00:00-07:00',
-    //                   'timeZone': 'America/Los_Angeles'
-    //                 },
-    //                 'end': {
-    //                   'dateTime': '2015-05-28T17:00:00-07:00',
-    //                   'timeZone': 'America/Los_Angeles'
-    //                 },
-    //                 'recurrence': [
-    //                   'RRULE:FREQ=DAILY;COUNT=2'
-    //                 ],
-    //                 'attendees': [
-    //                   {'email': 'lpage@example.com'},
-    //                   {'email': 'sbrin@example.com'}
-    //                 ],
-    //                 'reminders': {
-    //                   'useDefault': false,
-    //                   'overrides': [
-    //                     {'method': 'email', 'minutes': 24 * 60},
-    //                     {'method': 'popup', 'minutes': 10}
-    //                   ]
-    //                 }
-    //               }
-
-    //               const request = gapi.client.calendar.events.insert({
-    //                   'calendarId': 'primary',
-    //                   'resource': gCalEvent,
-    //               })
-
-    //               request.execute(event => {
-    //                   window.open(event.htmlLink)
-    //               })
-    //         })
-    //     })
-    // }
 
     return (
             <BrowserRouter>
-                <Sidebar user={user} onSignOut={onSignOut} />
+                <Sidebar user={user} />
                 {/* <Modal /> */}
                     <Switch>
                     <>            
@@ -104,7 +48,11 @@ export default function App() {
                             exact path='/sign_in'
                             render={(routeProps) => <SignIn {...routeProps} onSignIn={getCurrentUser} />}>
                         </Route>
-                        <Route exact path="/events" component={EventsIndex} />
+                        <Route
+                            exact path='/sign_out'
+                            render={(routeProps) => <SignOut {...routeProps} onSignOut={onSignOut} user={user} message={"Are You Sure?"} />}>
+                        </Route>
+                        <Route exact path="/events" component={EventsIndex} user={user} />
                         <Route exact path="/events/new/new" component={AddEvent} />
                         <Route exact path="/events/:id" component={Event} />
                     </>

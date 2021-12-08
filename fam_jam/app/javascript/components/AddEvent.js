@@ -28,6 +28,8 @@ const AddEvent = (props) => {
         e.preventDefault()
         // console.log('logging from AddEvent.js: ', {title, description, location, startTime, endTime, guestList, reminder})
         console.log(guestList)
+        
+
         const params = {
             title: title,
             description: description,
@@ -141,19 +143,9 @@ const AddEvent = (props) => {
                 <br/>
                 <input type="submit" value="Save Event" className="btn btn-block" />
             </form>
-
-
-
-
-
-            <pre>
+            {/* <pre>
                 {JSON.stringify(guestList, null, 2)}
-            </pre>
-
-
-
-
-
+            </pre> */}
         </div>
     )
 }

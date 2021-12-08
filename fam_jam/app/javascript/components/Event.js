@@ -41,10 +41,10 @@ const EventShow = (props) => {
                       'timeZone': 'America/Los_Angeles'
                     },
                     'recurrence': [
-                      'RRULE:FREQ=DAILY;COUNT=2'
+                      'RRULE:FREQ=DAILY;COUNT=1'
                     ],
                     'attendees': [
-                      {'email': 'lpage@example.com'},
+                      {'email': event.guests.split(',')[0]},
                       {'email': 'sbrin@example.com'}
                     ],
                     'reminders': {
@@ -71,9 +71,17 @@ const EventShow = (props) => {
     useEffect(() => {
         Event.show(props.match.params.id)
             .then((eventData) => {
+                // console.log(eventData.guests)
+                
                 setEvent(eventData)
+                
             })
     }, [])
+
+    // build this out later
+    // const toggleStatus = (params) => {
+    //     console.log("need to implement toggle status")
+    // }
 
     return (
         <div className="container">

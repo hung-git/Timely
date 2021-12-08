@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 const EventDetails = (props) => {
     return (
         <div className="">
-            {console.log("logging from EventDetails.js: ", props.guests)}
             {/* <h3>{props.title}</h3> */}
             <p><strong>Description:</strong> {props.description}</p>
             <br/>

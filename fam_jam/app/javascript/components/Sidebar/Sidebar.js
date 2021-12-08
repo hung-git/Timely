@@ -81,7 +81,7 @@ const Sidebar = ({user, onSignOut}) => {
                     </NavIcon>
                     {SidebarData.map((item, index) => {
                         // passing onSignOut is passed in from App.js and being passed through to SubMenu
-                        return <SubMenu item={item} key={index} onSignOut={onSignOut} />
+                        return <SubMenu item={item} key={index} onSignOut={onSignOut} user={user} />
                     })}
                 </SidebarWrap>
             </SidebarNav>

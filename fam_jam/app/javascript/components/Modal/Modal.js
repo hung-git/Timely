@@ -1,13 +1,20 @@
 import React, { useState } from "react";
+import { useHistory } from 'react-router-dom';
 import "./Modal.css";
 
-export default function Modal() {
-  const [modal, setModal] = useState(false);
+export default function Modal(props) {
+  const [modal, setModal] = useState(true);
+  let history = useHistory()
 
   const toggleModal = () => {
     setModal(!modal);
   };
 
+  const handleSignOut = () => {
+    props.onSignOut()
+    toggleModal()
+  }
+  
   if(modal) {
     document.body.classList.add('active-modal')
   } else {
@@ -16,26 +23,22 @@ export default function Modal() {
 
   return (
     <>
-      <button onClick={toggleModal} className="btn-modal">
+      {/* <button onClick={toggleModal} className="btn-modal">
         Testing
-      </button>
+      </button> */}
 
       {modal && (
         <div className="modal">
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
-            <h2>Hello Modal</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-              perferendis suscipit officia recusandae, eveniet quaerat assumenda
-              id fugit, dignissimos maxime non natus placeat illo iusto!
-              Sapiente dolorum id maiores dolores? Illum pariatur possimus
-              quaerat ipsum quos molestiae rem aspernatur dicta tenetur. Sunt
-              placeat tempora vitae enim incidunt porro fuga ea.
-            </p>
-            <button className="close-modal" onClick={toggleModal}>
+            <h2>
+              {props.message}
+            </h2>
+            <button className="btn" onClick={handleSignOut}>Yes</button>
+            <button className="btn" onClick={()=>history.goBack()}>Cancel</button>
+            {/* <button className="close-modal" onClick={toggleModal}>
               CLOSE
-            </button>
+            </button> */}
           </div>
         </div>
       )}

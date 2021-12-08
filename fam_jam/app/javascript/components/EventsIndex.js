@@ -5,8 +5,9 @@ import Header from './Header/Header'
 import * as FaIcons from 'react-icons/fa'
 import moment from 'moment';
 import Modal from './Modal/Modal'
+import { Button } from '@mui/material'
 
-const EventsIndex = ({currentUser}) => {
+const EventsIndex = ({user}) => {
     const [events, setEvents] = useState([])
 
     useEffect(() => {
@@ -42,7 +43,7 @@ const EventsIndex = ({currentUser}) => {
     return (
         <div className="container">
             {
-            (events.length < 1) ? 
+                (events.length < 1) ? 
                 <Header title={"There Are Currently No Events to Display"} /> 
                 : 
                 <Header title={"All Events"} text={'Add Event'} color={'green'} />

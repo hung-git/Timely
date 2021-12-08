@@ -28,6 +28,16 @@ body {
   border-radius: 5px;
 }
 
+.no-border-container {
+    max-width: 50%;
+    margin: 30px auto;
+    overflow: auto;
+    min-height: 300px;
+    /* border: 1px solid steelblue; */
+    padding: 30px;
+    border-radius: 5px;
+}
+
 a {
   text-decoration: none;
 }

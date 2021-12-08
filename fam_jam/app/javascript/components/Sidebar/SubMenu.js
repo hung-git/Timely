@@ -46,8 +46,6 @@ const SubMenu = (props) => {
 
     const showSubNav = () => setSubNav(!subNav)
 
-    const hideSubNav = () => setSubNav(false)
-
     return (
         <>
             <SidebarLink to={props.item.path} onClick={props.item.subNav && showSubNav}>
@@ -68,8 +66,7 @@ const SubMenu = (props) => {
                 return (
                     <DropdownLink to={e.path} key={index}>
                         {e.icon}
-                        {/* targeting the "Sign Out" link and enabling onClick on sign out link. props.onSignOut is passed in from Sidebar.js */}
-                        {e.title === "Sign Out" ? <SidebarLabel onClick={props.onSignOut}>{e.title}</SidebarLabel> : <SidebarLabel>{e.title}</SidebarLabel>}
+                        {e.title === "Sign Out" ? <SidebarLabel >{e.title}</SidebarLabel> : <SidebarLabel>{e.title}</SidebarLabel>}
                     </DropdownLink>
 
                 )
