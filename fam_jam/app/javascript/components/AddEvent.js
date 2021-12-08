@@ -3,6 +3,7 @@ import { Event } from '../requests'
 import Header from './Header/Header';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import DateFnsUtils from '@date-io/date-fns';
+import FormErrors from './Errors/FormErrors'
 
 import {
     DateTimePicker,
@@ -21,8 +22,8 @@ const AddEvent = (props) => {
             new Date()
         )
     const [ guestList, setGuestList ] = useState([])
-
     const [ guest, setGuest ] = useState('')
+    const [ errorMessages, setErrorMessages ] = useState([])
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -42,7 +43,12 @@ const AddEvent = (props) => {
 
         Event.create(params) 
             .then((event) => {
-                props.history.push(`/events/${event.id}`)
+                if (event.errors) {
+                    // console.log(`Event Errors: ${event.errors}`)
+                    setErrorMessages([...errorMessages, {errors: event.errors}])
+                } else {
+                    props.history.push(`/events/${event.id}`)
+                }
             })
     }
 
@@ -75,7 +81,8 @@ const AddEvent = (props) => {
                     <label>
                         Event Name
                     </label>
-                    <input type="text" placeholder="Add Event Name" value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <input type="text" placeholder="Add Event Name" name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
+                    <FormErrors forField="title" errors={errorMessages}/>
                 </div>
                 <div className="form-control">
                     <label>

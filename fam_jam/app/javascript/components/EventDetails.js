@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
+import { Event } from '../requests'
 
 const EventDetails = (props) => {
+    
+
     return (
         <div className="">
             {/* <h3>{props.title}</h3> */}
@@ -17,6 +20,8 @@ const EventDetails = (props) => {
             <p>Reminder: {props.reminder ? "Enabled" : 'No Reminder'}</p> 
             <br/>
             <p>Guests: {props.guests}</p>
+            <br/>
+            <Link to={"#"} className="btn"> Reminder On </Link>
         </div>
     )
 }

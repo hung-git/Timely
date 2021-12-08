@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react'
+import React, { useState, useEffect, Profiler} from 'react'
 import Sidebar from './components/Sidebar/Sidebar'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 // import { GroupsOne, GroupsTwo, GroupsThree } from './pages/Groups'
@@ -11,6 +11,7 @@ import SignUp from './components/User/SignUp'
 import SignIn from './components/User/SignIn'
 import { Session, User } from './requests'
 import SignOut from './components/User/SignOut'
+import Profile from './components/User/Profile'
 
 export default function App() {
     const [user, setUser] = useState('')
@@ -55,6 +56,7 @@ export default function App() {
                         <Route exact path="/events" component={EventsIndex} user={user} />
                         <Route exact path="/events/new/new" component={AddEvent} />
                         <Route exact path="/events/:id" component={Event} />
+                        <Route exact path="/profile" component={Profile} user={user} />
                     </>
                     </Switch>
             </BrowserRouter>

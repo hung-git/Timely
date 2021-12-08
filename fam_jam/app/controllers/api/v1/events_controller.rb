@@ -1,7 +1,7 @@
 class Api::V1::EventsController < ApplicationController
   before_action :get_event, except: [:index, :create]
 
-  before_action :authenticate_user!, except: [:index, :show]
+  # before_action :authenticate_user!, except: [:index, :show]
 
   # before_action :authorize_user!, only: [:update, :destroy]
   
@@ -20,16 +20,18 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def create
-    puts event_params
+    # puts event_params
     event = Event.new(event_params)
-    # event.user = current_user
+    event.user = current_user
     
-    if event.save
-      Enrollment.create(user_id: current_user.id, event_id: event.id)
-      render json: { id: event.id }
-    else
-      render json: { error: event.errors.messages }, status: 422
-    end
+    event.save!
+    render json: { id: event.id }
+    # if event.save
+    #   # Enrollment.create(user_id: current_user.id, event_id: event.id)
+    #   render json: { id: event.id }
+    # else
+    #   render json: { error: event.errors.messages }, status: 422
+    # end
   end
 
   def update

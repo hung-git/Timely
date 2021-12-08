@@ -78,11 +78,6 @@ const EventShow = (props) => {
             })
     }, [])
 
-    // build this out later
-    // const toggleStatus = (params) => {
-    //     console.log("need to implement toggle status")
-    // }
-
     return (
         <div className="container">
             <Header title={event.title} text={"Add To Calendar"}  addToGcal={addToGcal}/>
@@ -95,6 +90,7 @@ const EventShow = (props) => {
                 end_date = {event.end_date}
                 reminder = {event.reminder}
                 guests = {event.guests}
+                
             />
         </div>
     )

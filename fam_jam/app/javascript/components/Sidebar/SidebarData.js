@@ -66,11 +66,11 @@ export const SidebarData = [
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpened: <RiIcons.RiArrowUpSFill />,
         subNav: [
-            // {
-            //     title: 'Profile',
-            //     path: '#',
-            //     icon: <IoIcons.IoMdPeople />,
-            // },
+            {
+                title: 'Profile',
+                path: '/profile',
+                icon: <IoIcons.IoMdPeople />,
+            },
             {
                 
                 title: 'Sign In',

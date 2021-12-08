@@ -9,6 +9,7 @@ import { Button } from '@mui/material'
 
 const EventsIndex = ({user}) => {
     const [events, setEvents] = useState([])
+    const [priorityEvents, setPriorityEvents] = useState(0)
 
     useEffect(() => {
         // get events from the api using Event.index that we defined in request.js
@@ -29,26 +30,20 @@ const EventsIndex = ({user}) => {
         console.log('toggling', id)
         setEvents(events.map((event) => event.id === id ? {...event, reminder: !event.reminder} : event))
         const currentEvent = events.find((item) => item.id === id)
-        
-
-    
-        // const params = ()
         Event.update({...currentEvent, reminder: !currentEvent.reminder}, id)
       }
-    
-    //   useEffect(() => {
-    //     Event.update
-    //   }, [events])
     
     return (
         <div className="container">
             {
                 (events.length < 1) ? 
                 <Header title={"There Are Currently No Events to Display"} /> 
-                : 
+                :
                 <Header title={"All Events"} text={'Add Event'} color={'green'} />
             }
+            <br/>
             {events.map((e, index) => {
+                
                 return (
                     <div className={`event ${e.reminder ? 'reminder' : ''}`} onDoubleClick={() => toggleReminder(e.id)} key={index}> 
                         <h3>

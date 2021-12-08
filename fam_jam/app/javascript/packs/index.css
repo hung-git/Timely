@@ -28,6 +28,10 @@ body {
   border-radius: 5px;
 }
 
+#home-image {
+  /* max-width: 75%; */
+  max-height: 85%
+}
 .no-border-container {
     max-width: 50%;
     margin: 30px auto;

@@ -55,22 +55,23 @@ user_sample = users.shuffle.slice(0, 10)
         location: "Some Location",
         latitude: 49.2,
         longitude: 100.3,
-        guests: guests.sample
+        guests: guests.sample,
+        user: users.sample
     )
-    if e.valid?
-        Enrollment.create(
-        event: e,
-        user: User.first,
-        is_owner: true
-        )
+    # if e.valid?
+    #     Enrollment.create(
+    #     event: e,
+    #     user: User.first,
+    #     is_owner: true
+    #     )
         
-        5.times do
-            Enrollment.create(
-                event: e,
-                user: user_sample[1..10].sample
-            )
-        end
-    end
+        # 5.times do
+        #     Enrollment.create(
+        #         event: e,
+        #         user: user_sample[1..10].sample
+        #     )
+        # end
+    # end
 end
 
 

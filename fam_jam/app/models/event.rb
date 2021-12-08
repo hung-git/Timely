@@ -1,10 +1,12 @@
 class Event < ApplicationRecord
     
-    has_many :enrollments, dependent: :destroy
-    has_many :users, through: :enrollments, source: :user
+    # has_many :enrollments, dependent: :destroy
+    # has_many :users, through: :enrollments, source: :user
 
-    def owner
-        self.enrolled_users.where('is_owner = true')[0]
-    end
+    belongs_to :user
+
+    # validates :title, :description, presence: true 
+    validates :title, presence: {message: "A Title Must Be Provided"}
+    # validates :description, presence: {message: ""}
 
 end

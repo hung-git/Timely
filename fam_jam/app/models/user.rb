@@ -1,8 +1,10 @@
 class User < ApplicationRecord
     has_secure_password
 
-    has_many :enrollments, dependent: :destroy
-    has_many :events, through: :enrollments, source: :event
+    # has_many :enrollments, dependent: :destroy
+    # has_many :events, through: :enrollments, source: :event
+
+    has_many :events
 
     validates :first_name, :last_name, presence: true
 

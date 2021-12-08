@@ -10,13 +10,15 @@ class ApplicationController < ActionController::Base
     helper_method :current_user
     # this helper_method makes the method available to all the views of our application
 
-    def user_signed_in?
-        current_user.present?
-    end
-    helper_method :user_signed_in?
+    # def user_signed_in?
+    #     current_user.present?
+    # end
+    # helper_method :user_signed_in?
 
     def authenticate_user!
-        redirect_to new_session_path, notice: "Please sign in" unless user_signed_in?
+        unless current_user.present?
+            render(json:{status: 401})
+        end
     end
     # this let's us check whether a user is signed in, if not they will not be allowed to post or view some pages and will be prompted to sign in
 end
