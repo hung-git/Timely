@@ -8,8 +8,11 @@ import Modal from './Modal/Modal'
 import { Button } from '@mui/material'
 
 const EventsIndex = ({user}) => {
-    const [events, setEvents] = useState([])
-    const [priorityEvents, setPriorityEvents] = useState(0)
+    const [ events, setEvents ] = useState([])
+    const [ x, setX ] = useState(0)
+    const [ y, setY ] = useState(0)
+    const [ dragging, setDragging ] = useState(false)
+    const [ styles, setStyles ] = useState({})
 
     useEffect(() => {
         // get events from the api using Event.index that we defined in request.js

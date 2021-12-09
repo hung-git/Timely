@@ -8,8 +8,8 @@ import {
     DateTimePicker,
     MuiPickersUtilsProvider,
   } from '@material-ui/pickers';
-import "./Event.css";
 import { useHistory } from 'react-router-dom';
+import './Event.css'
 
 const AddEvent = (props) => {
     const [ title, setTitle] = useState('');
@@ -92,100 +92,99 @@ const AddEvent = (props) => {
       }
     return (
         <>
-      {/* <button onClick={toggleModal} className="btn-modal">
-        Testing
-      </button> */}
-
-      {modal && (
-        <div className="modal">
-          <div onClick={handleClick} className="overlay"></div>
-          <div className="modal-content">
-          <Header title={"Add Event"}/>
-            <form className="add-form" onSubmit={onSubmit}>
-                <div className="form-control">
-                    <label>
-                        Event Name
-                    </label>
-                    <input type="text" placeholder="Add Event Name" name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
-                    <FormErrors forField="title" errors={errorMessages}/>
-                </div>
-                <div className="form-control">
-                    <label>
-                        Event Description
-                    </label>
-                    <input type="text" placeholder="Add Description" value={description} onChange={(e) => setDescription(e.target.value)} />
-                </div>
-                <div className="form-control">
-                    <label>
-                        Location
-                    </label>
-                    <PlacesAutocomplete value={location} onChange={handleLocation} onSelect={handleLocation}>
-                        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-                            <div>
-                                <input {...getInputProps({ placeholder: "Enter Address ...", })} />
+        {modal && (
+            <div className="modal">
+            <div onClick={handleClick} className="overlay"></div>
+            <div className="modal-content">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <Header title={"Add Event"}/>
+                <form className="add-form" onSubmit={onSubmit}>
+                    <div className="form-control">
+                        <label>
+                            Event Name
+                        </label>
+                        <input type="text" placeholder="Add Event Name" name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
+                        <FormErrors forField="title" errors={errorMessages}/>
+                    </div>
+                    <div className="form-control">
+                        <label>
+                            Event Description
+                        </label>
+                        <input type="text" placeholder="Add Description" value={description} onChange={(e) => setDescription(e.target.value)} />
+                    </div>
+                    <div className="form-control">
+                        <label>
+                            Location
+                        </label>
+                        <PlacesAutocomplete value={location} onChange={handleLocation} onSelect={handleLocation}>
+                            {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                                 <div>
-                                    {loading && <div>Loading ...</div>}
-                                    {suggestions.map((suggestion, index) => {
-                                        const style = suggestion.active ?
-                                        { backgroundColor: 'lightgray', cursor: 'pointer' } :
-                                        { backgroundColor: "white", cursor: 'pointer' }
+                                    <input {...getInputProps({ placeholder: "Enter Address ...", })} />
+                                    <div>
+                                        {loading && <div>Loading ...</div>}
+                                        {suggestions.map((suggestion, index) => {
+                                            const style = suggestion.active ?
+                                            { backgroundColor: 'lightgray', cursor: 'pointer' } :
+                                            { backgroundColor: "white", cursor: 'pointer' }
 
-                                        return (
-                                            <div key={index}>
-                                                <div {...getSuggestionItemProps(suggestion, {style})}>
-                                                {suggestion.description}
+                                            return (
+                                                <div key={index}>
+                                                    <div {...getSuggestionItemProps(suggestion, {style})}>
+                                                    {suggestion.description}
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        )
-                                    })}
+                                            )
+                                        })}
+                                    </div>
                                 </div>
-                            </div>
-                        )}
-                    </PlacesAutocomplete>
-                </div>
-                <div className="form-control">
-                    <label>
-                        Start Time
-                    </label>
-                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                        <DateTimePicker value={startTime} onChange={handleStartChange} 
-                            minDate={new Date()}
-                        />
-                    </MuiPickersUtilsProvider>
-                </div>
-                <div className="form-control">
-                    <label>
-                        End Time
-                    </label>
-                    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-                        <DateTimePicker value={endTime} onChange={handleEndChange} />
-                    </MuiPickersUtilsProvider>
-                </div>        
-                <div>
-                    <input type="checkbox" className="btn-check" id="btn-check-outlined" autoComplete="off" onChange={(e) => {setReminder(!reminder)}} />
-                    <label className="btn btn-outline-primary" htmlFor="btn-check-outlined">Set Reminder</label>
+                            )}
+                        </PlacesAutocomplete>
+                    </div>
+                    <div className="form-control">
+                        <label>
+                            Start Time
+                        </label>
+                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                            <DateTimePicker value={startTime} onChange={handleStartChange} 
+                                minDate={new Date()}
+                            />
+                        </MuiPickersUtilsProvider>
+                    </div>
+                    <div className="form-control">
+                        <label>
+                            End Time
+                        </label>
+                        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                            <DateTimePicker value={endTime} onChange={handleEndChange} />
+                        </MuiPickersUtilsProvider>
+                    </div>        
+                    <div>
+                        <input type="checkbox" className="btn-check" id="btn-check-outlined" autoComplete="off" onChange={(e) => {setReminder(!reminder)}} />
+                        <label className="btn btn-outline-primary" htmlFor="btn-check-outlined">Set Reminder</label>
+                        <br/>
+                    </div>
+                    <div className="form-control">      
+                        <input type="email" id="email" name="guest" placeholder="Add Guest" value={guest} onChange={e => setGuest(e.target.value)}/>
+                    </div>
+                    <button className="btn" onClick={handleAddGuest}>
+                        + Guest
+                    </button>  
                     <br/>
-                </div>
-                <div className="form-control">      
-                    <input type="email" id="email" name="guest" placeholder="Add Guest" value={guest} onChange={e => setGuest(e.target.value)}/>
-                </div>
-                <button className="btn" onClick={handleAddGuest}>
-                    + Guest
-                </button>  
-                <br/>
-                <input type="submit" value="Save Event" className="btn btn-block" />
-            </form>
-            {/* <pre>
-                {JSON.stringify(guestList, null, 2)}
-            </pre> */}
-          </div>
-        </div>
-      )}
-      
-    </>
-        // <div className="container">
-            
-        // </div>
+                    <input type="submit" value="Save Event" className="btn btn-block" />
+                </form>
+                {/* <pre>
+                    {JSON.stringify(guestList, null, 2)}
+                </pre> */}
+            </div>
+            </div>
+        )}
+        </>
     )
 }
 
