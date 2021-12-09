@@ -4,12 +4,13 @@ import Header from './Header/Header';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import DateFnsUtils from '@date-io/date-fns';
 import FormErrors from './Errors/FormErrors'
-
 import {
     DateTimePicker,
     MuiPickersUtilsProvider,
   } from '@material-ui/pickers';
-  
+import "./Event.css";
+import { useHistory } from 'react-router-dom';
+
 const AddEvent = (props) => {
     const [ title, setTitle] = useState('');
     const [ description, setDescription ] = useState('')
@@ -24,6 +25,12 @@ const AddEvent = (props) => {
     const [ guestList, setGuestList ] = useState([])
     const [ guest, setGuest ] = useState('')
     const [ errorMessages, setErrorMessages ] = useState([])
+    const [modal, setModal] = useState(true);
+    let history = useHistory()
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
 
     const onSubmit = (e) => {
         e.preventDefault()
@@ -73,9 +80,27 @@ const AddEvent = (props) => {
         setGuest('')
     }
 
+    const handleClick = () => {
+        toggleModal()
+        history.goBack()
+    }
+    
+    if(modal) {
+        document.body.classList.add('active-modal')
+      } else {
+        document.body.classList.remove('active-modal')
+      }
     return (
-        <div className="container">
-            <Header title={"Add Event"}/>
+        <>
+      {/* <button onClick={toggleModal} className="btn-modal">
+        Testing
+      </button> */}
+
+      {modal && (
+        <div className="modal">
+          <div onClick={handleClick} className="overlay"></div>
+          <div className="modal-content">
+          <Header title={"Add Event"}/>
             <form className="add-form" onSubmit={onSubmit}>
                 <div className="form-control">
                     <label>
@@ -153,7 +178,14 @@ const AddEvent = (props) => {
             {/* <pre>
                 {JSON.stringify(guestList, null, 2)}
             </pre> */}
+          </div>
         </div>
+      )}
+      
+    </>
+        // <div className="container">
+            
+        // </div>
     )
 }
 

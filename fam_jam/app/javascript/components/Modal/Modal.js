@@ -34,6 +34,7 @@ export default function Modal(props) {
             <h2>
               {props.message}
             </h2>
+            {/* <SignIn /> */}
             <button className="btn" onClick={handleSignOut}>Yes</button>
             <button className="btn" onClick={()=>history.goBack()}>Cancel</button>
             {/* <button className="close-modal" onClick={toggleModal}>

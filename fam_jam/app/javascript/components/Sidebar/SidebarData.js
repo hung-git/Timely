@@ -25,11 +25,11 @@ export const SidebarData = [
         //     },
         // ]
     },
-    // {
-    //     title: 'Group 1',
-    //     path: '/groups/groups1',
-    //     icon: <IoIcons.IoMdPeople />
-    // },
+    {
+        title: 'Groups',
+        path: '/groups',
+        icon: <IoIcons.IoMdPeople />
+    },
     // {
     //     title: 'Group 2',
     //     path: '/groups/groups2',
@@ -69,6 +69,12 @@ export const SidebarData = [
             {
                 title: 'Profile',
                 path: '/profile',
+                icon: <IoIcons.IoMdPeople />,
+            },
+            {
+                
+                title: 'Sign Up',
+                path: '/sign_up',
                 icon: <IoIcons.IoMdPeople />,
             },
             {

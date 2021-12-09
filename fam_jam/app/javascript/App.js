@@ -12,6 +12,7 @@ import SignIn from './components/User/SignIn'
 import { Session, User } from './requests'
 import SignOut from './components/User/SignOut'
 import Profile from './components/User/Profile'
+import Groups from './components/Groups/Groups.js'
 
 export default function App() {
     const [user, setUser] = useState('')
@@ -57,6 +58,7 @@ export default function App() {
                         <Route exact path="/events/new/new" component={AddEvent} />
                         <Route exact path="/events/:id" component={Event} />
                         <Route exact path="/profile" component={Profile} user={user} />
+                        <Route exact path="/groups" component={Groups} />
                     </>
                     </Switch>
             </BrowserRouter>
