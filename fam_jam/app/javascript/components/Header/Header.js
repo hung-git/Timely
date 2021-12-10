@@ -18,7 +18,7 @@ const Header = ({ title, text, addToGcal }) => {
             {
             text==="Add To Calendar" ? 
                 <Button color='green' text={text} handleClick={handleClick}/> :
-            text==="To Do" ?
+            text==="Nothing To Do" ?
                 // <Button color='green' text={text} handleClick={handleClick}/> :
                 <Link to="/events/new/new" className="btn">Add Event</Link> :
             null

@@ -30,7 +30,8 @@ body {
   width: 100%;
   max-width: 500px;
   /* min-width: 400px; */
-  background-color: #3f4739;
+  /* background-color: #3f4739; */
+  background-color: #72ad63;
   padding: 15px;
   border-radius: 5px;
 }
@@ -123,7 +124,7 @@ a {
 }
 
 .event.reminder {
-  border-left: 5px solid green;
+  border-left: 5px solid red;
 }
 
 .event h3 {

@@ -1,6 +1,6 @@
 {
-  "Index.js": "/packs/js/Index-833e08d6c9d11897d6f7.js",
-  "Index.js.map": "/packs/js/Index-833e08d6c9d11897d6f7.js.map",
+  "Index.js": "/packs/js/Index-96387c3c6371cc131470.js",
+  "Index.js.map": "/packs/js/Index-96387c3c6371cc131470.js.map",
   "application.js": "/packs/js/application-b79847a82961d80177ce.js",
   "application.js.map": "/packs/js/application-b79847a82961d80177ce.js.map",
   "entrypoints": {
@@ -14,22 +14,22 @@
     },
     "index": {
       "js": [
-        "/packs/js/index-47a6121dd70e9a16db3f.js"
+        "/packs/js/index-d26940109b27d5879752.js"
       ],
       "js.map": [
-        "/packs/js/index-47a6121dd70e9a16db3f.js.map"
+        "/packs/js/index-d26940109b27d5879752.js.map"
       ]
     },
     "Index": {
       "js": [
-        "/packs/js/Index-833e08d6c9d11897d6f7.js"
+        "/packs/js/Index-96387c3c6371cc131470.js"
       ],
       "js.map": [
-        "/packs/js/Index-833e08d6c9d11897d6f7.js.map"
+        "/packs/js/Index-96387c3c6371cc131470.js.map"
       ]
     }
   },
-  "index.js": "/packs/js/index-47a6121dd70e9a16db3f.js",
-  "index.js.map": "/packs/js/index-47a6121dd70e9a16db3f.js.map",
+  "index.js": "/packs/js/index-d26940109b27d5879752.js",
+  "index.js.map": "/packs/js/index-d26940109b27d5879752.js.map",
   "media/components/calendar.jpg": "/packs/media/components/calendar-ed4903e60eceafe98d8b0bcea2306dd5.jpg"
 }

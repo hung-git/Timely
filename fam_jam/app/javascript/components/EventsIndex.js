@@ -35,7 +35,13 @@ const EventsIndex = ({user}) => {
     return (
         <div className='flexbox'>
             <Board id="board-1" className="board">
-                <Header title={"To Do"} text={'Add Event'} color={'green'}/>
+                {
+                (events.length < 1) ? 
+                <Header title={"All Done"} /> 
+                :
+                <Header title={"To Do"} text={'Add Event'} color={'green'} />
+                }
+                {/* <Header title={"To Do"} text={'Add Event'} color={'green'}/> */}
                 {events.map((e, index) => {
                 return (
                     <Card key={index} id={`card-${index}`} className="card" draggable="true">
@@ -50,13 +56,15 @@ const EventsIndex = ({user}) => {
                 )
                 })}
             </Board>
+            {
+            (events.length > 0) ? 
             <Board id="board-2" className="board">
                 <Header title={"In Progress"} />
-                
             </Board>
+            :
+            null
+            }
             {/* <Board id="board-3" className="">
-
-                
             </Board> */}
         </div>
     )
