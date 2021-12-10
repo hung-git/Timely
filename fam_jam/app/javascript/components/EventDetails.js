@@ -21,7 +21,7 @@ const EventDetails = (props) => {
             <br/>
             <p>Guests: {props.guests}</p>
             <br/>
-            <Link to={"#"} className="btn"> Reminder On </Link>
+            <Link to={"#"} className="btn"> Reminder On </Link><Link to={"/events"} className="btn"> All Events </Link>
         </div>
     )
 }

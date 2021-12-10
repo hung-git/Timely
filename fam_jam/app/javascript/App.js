@@ -14,6 +14,8 @@ import { Session, User } from './requests'
 import SignOut from './components/User/SignOut'
 import Profile from './components/User/Profile'
 import Groups from './components/Groups/Groups.js'
+import Board from './components/Board'
+import Card from './components/Card'
 
 export default function App() {
     const [user, setUser] = useState('')

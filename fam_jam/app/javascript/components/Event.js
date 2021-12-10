@@ -71,10 +71,7 @@ const EventShow = (props) => {
     useEffect(() => {
         Event.show(props.match.params.id)
             .then((eventData) => {
-                // console.log(eventData.guests)
-                
                 setEvent(eventData)
-                
             })
     }, [])
 
@@ -90,7 +87,6 @@ const EventShow = (props) => {
                 end_date = {event.end_date}
                 reminder = {event.reminder}
                 guests = {event.guests}
-                
             />
         </div>
     )

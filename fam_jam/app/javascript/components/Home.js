@@ -7,8 +7,6 @@ const Home = () => {
         <div className="home">
             {/* <h1>Welcome to Timely</h1> */}
             <img src={img} id="home-image" alt="calendar.jpg" />
-
-
         </div>
     )
 }

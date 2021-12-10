@@ -4,15 +4,11 @@ import { Link } from 'react-router-dom'
 import Header from './Header/Header'
 import * as FaIcons from 'react-icons/fa'
 import moment from 'moment';
-import Modal from './Modal/Modal'
-import { Button } from '@mui/material'
+import Board from './Board'
+import Card from './Card'
 
 const EventsIndex = ({user}) => {
-    const [ events, setEvents ] = useState([])
-    const [ x, setX ] = useState(0)
-    const [ y, setY ] = useState(0)
-    const [ dragging, setDragging ] = useState(false)
-    const [ styles, setStyles ] = useState({})
+    const [events, setEvents] = useState([])
 
     useEffect(() => {
         // get events from the api using Event.index that we defined in request.js
@@ -37,29 +33,31 @@ const EventsIndex = ({user}) => {
       }
     
     return (
-        <div className="container">
-            {
-                (events.length < 1) ? 
-                <Header title={"There Are Currently No Events to Display"} /> 
-                :
-                <Header title={"All Events"} text={'Add Event'} color={'green'} />
-            }
-            <br/>
-            {events.map((e, index) => {
-                
+        <div className='flexbox'>
+            <Board id="board-1" className="board">
+                <Header title={"To Do"} text={'Add Event'} color={'green'}/>
+                {events.map((e, index) => {
                 return (
+                    <Card key={index} id={`card-${index}`} className="card" draggable="true">
                     <div className={`event ${e.reminder ? 'reminder' : ''}`} onDoubleClick={() => toggleReminder(e.id)} key={index}> 
                         <h3>
                             <Link to={`/events/${e.id}`}>{e.title}</Link> 
-                            <FaIcons.FaTimes style={{color:'', cursor:'pointer'}} 
-                                onClick={() => {
-                                    deleteEvent(e.id)
-                                }}/>
+                            <FaIcons.FaTimes style={{color:'', cursor:'pointer'}} onClick={() => {deleteEvent(e.id)}}/>
                         </h3>
                         <p>Due: {moment(e.end_date).format('MMM Do, YYYY')}</p>
                     </div>
+                    </Card>
                 )
-            })}
+                })}
+            </Board>
+            <Board id="board-2" className="board">
+                <Header title={"In Progress"} />
+                
+            </Board>
+            {/* <Board id="board-3" className="">
+
+                
+            </Board> */}
         </div>
     )
 }
