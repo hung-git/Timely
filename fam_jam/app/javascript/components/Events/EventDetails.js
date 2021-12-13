@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
 import moment from 'moment'
 import { Link } from 'react-router-dom'
-import { Event } from '../requests'
 
 const EventDetails = (props) => {
-    
-
     return (
         <div className="">
             {/* <h3>{props.title}</h3> */}

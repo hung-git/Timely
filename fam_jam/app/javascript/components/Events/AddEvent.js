@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import { Event } from '../requests'
-import Header from './Header/Header';
+import { Event } from '../../requests'
+import Header from '../Header/Header';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import DateFnsUtils from '@date-io/date-fns';
-import FormErrors from './Errors/FormErrors'
 import {
     DateTimePicker,
     MuiPickersUtilsProvider,
@@ -110,7 +109,6 @@ const AddEvent = (props) => {
                             Event Name
                         </label>
                         <input type="text" placeholder="Add Event Name" name='title' value={title} onChange={(e) => setTitle(e.target.value)} />
-                        <FormErrors forField="title" errors={errorMessages}/>
                     </div>
                     <div className="form-control">
                         <label>
