@@ -6,7 +6,6 @@ body.active-modal {
     padding: 10px 20px;
     display: block;
     margin: 100px auto 0;
-    /* font-size: 18px; */
 }
 
 .modal, .overlay {
@@ -87,6 +86,7 @@ body.active-modal {
 
 /* new layout CSS */
 
+
 :root {
     --muted-color: #999;
     --text-color: #555;
@@ -95,6 +95,18 @@ body.active-modal {
     --group-header-spacing: 1rem;
 }
 
+section {
+    position: relative;
+}
+
+.left-box {
+    border: 1px solid black;
+    min-width: 300px;
+    min-height: 600px;
+    display: flex;
+    position: absolute;
+    left: 30px;
+}
 .notification-section {
     margin-bottom: 2rem;
 }
@@ -192,10 +204,22 @@ body {
     margin-top: .5rem;
     padding: .25rem;
     border-radius: .25rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* .notification-content.reminder {
+    border-left: 5px solid red;
+  } */
+
+.notification-content.reminder {
+  background-color: var(--muted-color);
+  opacity: 0.4;
+    /* border-left: 5px solid rgb(9, 255, 0); */
 }
 
 .icon {
-    height: 20px;
+    height: 10px;
     width: 20px;
 }
 

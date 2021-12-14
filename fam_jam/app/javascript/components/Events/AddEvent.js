@@ -53,7 +53,7 @@ const AddEvent = (props) => {
                     // console.log(`Event Errors: ${event.errors}`)
                     setErrorMessages([...errorMessages, {errors: event.errors}])
                 } else {
-                    props.history.push(`/events/${event.id}`)
+                    props.history.push(`/events`)
                 }
             })
     }

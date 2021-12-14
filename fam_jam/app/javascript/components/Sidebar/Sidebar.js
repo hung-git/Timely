@@ -3,31 +3,13 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import * as FaIcons from 'react-icons/fa'
-// import * as AiIcons from 'react-icons/ai'
 import { SidebarData } from './SidebarData'
-// import { IoMdHeartEmpty } from 'react-icons/io'
 import SubMenu from './SubMenu'
 import { IconContext } from 'react-icons/lib'
-
-const Nav = styled.div`
-    background: #3f4739;
-    height: 80px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-`;
-
-const NavIcon = styled(Link)`
-    margin-left: 2rem;
-    font-size: 2rem;
-    height: 80px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-`;
+import './Sidebar.css'
 
 const SidebarNav = styled.nav`
-    background: #3f4739;
+    background: #777;
     width: 250px;
     height: 100vh;
     display: flex;
@@ -38,17 +20,6 @@ const SidebarNav = styled.nav`
     transition: 350ms;
     z-index: 10;
 `;
-
-const SidebarWrap = styled.div`
-    width: 100%;
-`;
-
-const NavbarName = styled.div`
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    padding-left: 200px;
-`
 
 const Sidebar = ({user, onSignOut}) => {
     const [ sidebar, setSidebar ] = useState(false)
@@ -63,25 +34,30 @@ const Sidebar = ({user, onSignOut}) => {
     return (
         <>
         <IconContext.Provider value={{ color: '#fff'}}>
-            <div onMouseLeave={closeSidebar}>
-            <Nav>
-                <NavIcon to='#'>
-                    <FaIcons.FaBars onClick={showSidebar} />
-                    <NavbarName>
-                        { user ? `Hello, ${user.first_name}` : null }
-                    </NavbarName>
-                </NavIcon>
-            </Nav>
+          <div onMouseLeave={closeSidebar}>
+            <div className="nav">
+              <div className="nav-text">
+                <Link to='#'>
+                  <FaIcons.FaBars className="nav-icon" onClick={showSidebar} />
+                </Link>
+                <div className="nav-links">
+                    <Link className="links" to='/events/new/new'>Add Event</Link>
+                </div>
+                <div className="nav-user-name">
+                  { user ? `Hello, ${user.first_name}` : null }
+                </div>
+              </div>
+            </div>
             <SidebarNav sidebar={sidebar}>
-                <SidebarWrap>
-                    <NavIcon to='#'>
+                <div className="sidebar-wrap">
+                    <Link to='#'>
                         <FaIcons.FaTimes onClick={showSidebar} />
-                    </NavIcon>
+                    </Link>
                     {SidebarData.map((item, index) => {
                         // passing onSignOut is passed in from App.js and being passed through to SubMenu
                         return <SubMenu item={item} key={index} onSignOut={onSignOut} user={user} />
                     })}
-                </SidebarWrap>
+                </div>
             </SidebarNav>
             </div>
         </IconContext.Provider>
