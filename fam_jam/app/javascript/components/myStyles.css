@@ -1,24 +1,17 @@
 :root {
-    --muted-color: #999;
+    --muted-color: rgb(216, 208, 208);
     --text-color: #555;
     --avatar-size: 50px;
     --grid-gap: 1rem;
     --group-header-spacing: 1rem;
+    --reminder-color: rgb(235, 232, 81);
 }
 
 section {
     position: relative;
+    margin: 1rem;
 }
 
-.left-box {
-    border: 1px solid black;
-    min-width: 300px;
-    min-height: 600px;
-    display: flex;
-    position: absolute;
-    left: 30px;
-    padding: 1rem;
-}
 .notification-section {
     margin-bottom: 2rem;
 }
@@ -126,15 +119,16 @@ body {
 }
 
 .icon {
-    height: 20px;
-    width: 20px;
+    height: 16px;
+    width: 16px;
 }
 
-/* .icon > path {
+.icon > path {
   fill: var(--muted-color); 
-}  */
+} 
+
 .reminder > path {
-    fill: rgb(235, 232, 81);
+    fill: var(--reminder-color);
 }
 
 .group-header {
@@ -148,4 +142,33 @@ body {
 
 .group-date {
     color: var(--muted-color);
+}
+
+.filter-box {
+    border: 1px solid var(--muted-color);
+    min-width: 250px;
+    min-height: 600px;
+    /* display: flex; */
+    position: absolute;
+    left: 30px;
+    padding: 1rem;
+}
+
+.filter-box-header {
+    margin-bottom: var(--group-header-spacing);
+}
+
+.filter-box-form-input {
+    margin-right: .25rem;
+}
+
+.filter-box-form {
+    
+    /* display: grid;
+    grid-template-columns: 16px 1fr;
+    grid-auto-rows: auto; */
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+    padding: .75rem;
 }
