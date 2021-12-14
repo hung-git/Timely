@@ -2,8 +2,8 @@ import React from 'react'
 
 function LeftBox() {
     return (
-        <div>
-            
+        <div className="left-box">
+          here's a new div
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Event } from '../../requests'
-import Header from '../Header/Header';
+import { Event } from '../requests'
+import Header from './Header/Header';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -8,7 +8,7 @@ import {
     MuiPickersUtilsProvider,
   } from '@material-ui/pickers';
 import { useHistory } from 'react-router-dom';
-import './Event.css'
+import './myStyles.css'
 
 const AddEvent = (props) => {
     const [ title, setTitle] = useState('');
