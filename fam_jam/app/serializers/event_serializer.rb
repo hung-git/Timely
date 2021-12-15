@@ -6,7 +6,8 @@ class EventSerializer < ActiveModel::Serializer
     :location, 
     :start_date, 
     :end_date, 
-    :reminder, 
+    :reminder,
+    :is_complete,
     :guests
   )
 end

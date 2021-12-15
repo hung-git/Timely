@@ -4,12 +4,14 @@
     --avatar-size: 50px;
     --grid-gap: 1rem;
     --group-header-spacing: 1rem;
-    --reminder-color: rgb(235, 232, 81);
+    --reminder-color: #444;
+    --completed-color: rgb(28, 192, 28);
 }
 
 section {
     position: relative;
     margin: 1rem;
+    min-height: 600px;
 }
 
 .notification-section {
@@ -113,9 +115,13 @@ body {
     justify-content: space-between;
 }
 
+.mark-complete {
+    text-decoration-line: line-through;
+}
+
 .notification-content.reminder {
-  background-color: var(--muted-color);
-  opacity: 0.4;
+  /* background-color: var(--muted-color); */
+  /* opacity: 0.4; */
 }
 
 .icon {
@@ -129,6 +135,10 @@ body {
 
 .reminder > path {
     fill: var(--reminder-color);
+}
+
+.complete > path {
+    fill: var(--completed-color);
 }
 
 .group-header {
@@ -147,7 +157,7 @@ body {
 .filter-box {
     border: 1px solid var(--muted-color);
     min-width: 250px;
-    min-height: 600px;
+    min-height: 400px;
     /* display: flex; */
     position: absolute;
     left: 30px;
@@ -163,10 +173,6 @@ body {
 }
 
 .filter-box-form {
-    
-    /* display: grid;
-    grid-template-columns: 16px 1fr;
-    grid-auto-rows: auto; */
     display: flex;
     flex-direction: column;
     gap: .25rem;
