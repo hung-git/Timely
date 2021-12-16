@@ -2,6 +2,7 @@ import React from 'react'
 
 function FilterBox({ handleReminderFilter, handleCompletedFilter }) {
     return (
+      <>
       <div className="filter-box">
         <div className="filter-box-header">
           <h3>Filters</h3>
@@ -10,7 +11,7 @@ function FilterBox({ handleReminderFilter, handleCompletedFilter }) {
           <div className="">
             <input className="filter-box-form-input" type="checkbox" value="" id="flexCheckDefault" />
             <label className="filter-box-form-label" htmlFor="flexCheckDefault">
-              Important
+              Overdue
             </label>
           </div>
           <div className="">
@@ -27,6 +28,7 @@ function FilterBox({ handleReminderFilter, handleCompletedFilter }) {
           </div>
         </div>
       </div>
+      </>
     )
 }
 
