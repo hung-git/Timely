@@ -77,8 +77,7 @@ const EventShow = (props) => {
 
     return (
         <div className="container">
-            <Header title={event.title} text={"Add To Calendar"}  addToGcal={addToGcal}/>
-        
+            {/* <Header title={event.title} text={"Add To Calendar"}  addToGcal={addToGcal}/> */}
             <EventDetails
                 title = {event.title}
                 description = {event.description}

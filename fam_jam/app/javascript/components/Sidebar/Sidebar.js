@@ -44,7 +44,7 @@ const Sidebar = ({user, onSignOut}) => {
                     <Link className="links" to='/events/new/new'>Add Event</Link>
                 </div>
                 <div className="nav-user-name">
-                  { user ? `Hello, ${user.first_name}` : null }
+                  { user ? `Hello, ${user.first_name}` : 'sign in' }
                 </div>
               </div>
             </div>

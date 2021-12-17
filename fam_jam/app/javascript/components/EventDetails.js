@@ -23,4 +23,4 @@ const EventDetails = (props) => {
     )
 }
 
-export default EventDetails
+// export default EventDetails
