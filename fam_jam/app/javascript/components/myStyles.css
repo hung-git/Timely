@@ -135,6 +135,7 @@ section {
 .notification-content {
     background-color: #f0f0f0;
     margin-top: .5rem;
+    margin-left: 1rem;
     padding: .25rem;
     border-radius: .25rem;
     display: flex;
@@ -234,13 +235,15 @@ section {
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0, 1, 0, 1);
     padding-left: 1rem;
+    font-size: .9rem;
 }
 
 .notification-details.show {
     height: auto;
     max-height: 9999px;
-    transition: all 0.5s cubic-bezier(1, 0, 1, 0);
+    transition: all 0.3s cubic-bezier(1, 0, 1, 0);
     padding-left: 1rem;
+    font-size: .9rem;
 }
 
 
