@@ -144,11 +144,10 @@ section {
 }
 
 .icon {
-    height: 16px;
-    width: 16px;
+    height: 1.2rem;
+    width: 1.2rem;
     cursor: pointer;
     margin-right: .5rem;
-
 }
 
 .icon > path {
@@ -225,7 +224,6 @@ section {
 
 /* Add Events Accordion *//* Add Events Accordion *//* Add Events Accordion *//* Add Events Accordion */
 
-
 .accordion {
     width: 100%;
 }
@@ -244,6 +242,13 @@ section {
     transition: all 0.3s cubic-bezier(1, 0, 1, 0);
     padding-left: 1rem;
     font-size: .9rem;
+}
+
+.add-event-section {
+  position: relative;
+  padding: 1em;
+  top: 115px;
+  /* color:rgb(28, 192, 28); */
 }
 
 

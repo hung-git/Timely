@@ -100,14 +100,14 @@ main {
   width: 100%;
 } */
 
-/* .event h3 {
+.event h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
 .add-form {
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
 }
 
 .form-control {
@@ -119,7 +119,7 @@ main {
 }
 
 .form-control input {
-  width: 100%;
+  min-width: 400px;
   height: 40px;
   margin: 5px;
   padding: 3px 7px;
@@ -140,8 +140,3 @@ main {
   flex: 2;
   height: 20px;
 }
-
-footer {
-  margin-top: 30px;
-  text-align: center;
-} */

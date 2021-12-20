@@ -25,11 +25,11 @@ export const SidebarData = [
         //     },
         // ]
     },
-    {
-        title: 'Groups',
-        path: '/groups',
-        icon: <IoIcons.IoMdPeople />
-    },
+    // {
+    //     title: 'Groups',
+    //     path: '/groups',
+    //     icon: <IoIcons.IoMdPeople />
+    // },
     // {
     //     title: 'Group 2',
     //     path: '/groups/groups2',
@@ -66,11 +66,11 @@ export const SidebarData = [
         iconClosed: <RiIcons.RiArrowDownSFill />,
         iconOpened: <RiIcons.RiArrowUpSFill />,
         subNav: [
-            {
-                title: 'Profile',
-                path: '/profile',
-                icon: <IoIcons.IoMdPeople />,
-            },
+            // {
+            //     title: 'Profile',
+            //     path: '/profile',
+            //     icon: <IoIcons.IoMdPeople />,
+            // },
             {
                 
                 title: 'Sign Up',
